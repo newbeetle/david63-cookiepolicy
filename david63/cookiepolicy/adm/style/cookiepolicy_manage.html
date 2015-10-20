@@ -1,0 +1,119 @@
+<!-- INCLUDE overall_header.html -->
+
+<h1>{L_COOKIE_POLICY}</h1>
+<p>{L_COOKIE_POLICY_EXPLAIN}</p>
+
+<form id="cookiepolicy" method="post" action="{U_ACTION}">
+	<fieldset>
+		<legend>{L_COOKIE_POLICY_OPTIONS}</legend>
+
+		<dl>
+			<dt><label for="cookie_policy_enabled">{L_COOKIE_POLICY_ENABLE}{L_COLON}</label><br /><span>{L_COOKIE_POLICY_ENABLE_EXPLAIN}</span></dt>
+			<dd><input type="radio" class="radio" name="cookie_policy_enabled" value="1" id="cookie_policy_enabled"<!-- IF COOKIE_POLICY_ENABLED --> checked="checked"<!-- ENDIF -->/> {L_ENABLE}
+				<input type="radio" class="radio" name="cookie_policy_enabled" value="0" <!-- IF not COOKIE_POLICY_ENABLED --> checked="checked"<!-- ENDIF --> /> {L_DISABLE}</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="cookie_box_position">{L_COOKIE_BOX_POSITION}{L_COLON}</label><br /><span>{L_COOKIE_BOX_POSITION_EXPLAIN}</span></dt>
+			<dd><input type="radio" class="radio" name="cookie_box_position" value="0" id="cookie_box_position"<!-- IF not COOKIE_BOX_POSITION --> checked="checked"<!-- ENDIF -->/> {L_COOKIE_LEFT}
+				<input type="radio" class="radio" name="cookie_box_position" value="1" <!-- IF COOKIE_BOX_POSITION --> checked="checked"<!-- ENDIF --> /> {L_COOKIE_RIGHT}</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="cookie_eu_detect">{L_COOKIE_DETECT}{L_COLON}</label><br /><span>{L_COOKIE_DETECT_EXPLAIN}</span></dt>
+			<dd><input type="radio" class="radio" name="cookie_eu_detect" value="1" id="cookie_eu_detect"<!-- IF COOKIE_POLICY_EU_DETECT --> checked="checked"<!-- ENDIF -->/> {L_YES}
+				<input type="radio" class="radio" name="cookie_eu_detect" value="0" <!-- IF not COOKIE_POLICY_EU_DETECT --> checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="cookie_on_index">{L_COOKIE_POLICY_ON_INDEX}{L_COLON}</label><br /><span>{L_COOKIE_POLICY_ON_INDEX_EXPLAIN}</span></dt>
+			<dd><input type="radio" class="radio" name="cookie_on_index" value="1" <!-- IF COOKIE_POLICY_ON_INDEX --> checked="checked"<!-- ENDIF --> /> {L_INDEX}
+				<input type="radio" class="radio" name="cookie_on_index" value="0" id="cookie_on_index"<!-- IF not COOKIE_POLICY_ON_INDEX --> checked="checked"<!-- ENDIF -->/> {L_ALL}</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="cookie_expire">{L_COOKIE_EXPIRE}{L_COLON}</label><br /><span>{L_COOKIE_EXPIRE_EXPLAIN}</span></dt>
+			<dd><input type="radio" class="radio" name="cookie_expire" value="1" id="cookie_expire"<!-- IF COOKIE_POLICY_EXPIRE --> checked="checked"<!-- ENDIF -->/> {L_YES}
+				<input type="radio" class="radio" name="cookie_expire" value="0" <!-- IF not COOKIE_POLICY_EXPIRE --> checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="cookie_show_policy">{L_COOKIE_SHOW_POLICY}{L_COLON}</label><br /><span>{L_COOKIE_SHOW_POLICY_EXPLAIN}</span></dt>
+			<dd><input type="radio" class="radio" name="cookie_show_policy" value="1" id="cookie_show_policy"<!-- IF COOKIE_SHOW_POLICY --> checked="checked"<!-- ENDIF -->/> {L_YES}
+				<input type="radio" class="radio" name="cookie_show_policy" value="0" <!-- IF not COOKIE_SHOW_POLICY --> checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="cookie_log_errors">{L_COOKIE_LOG_ERRORS}{L_COLON}</label><br /><span>{L_COOKIE_LOG_ERRORS_EXPLAIN}</span></dt>
+			<dd><input type="radio" class="radio" name="cookie_log_errors" value="1" id="cookie_log_errors"<!-- IF COOKIE_POLICY_LOG_ERRORS --> checked="checked"<!-- ENDIF -->/> {L_YES}
+				<input type="radio" class="radio" name="cookie_log_errors" value="0" <!-- IF not COOKIE_POLICY_LOG_ERRORS --> checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+	</fieldset>
+
+	<fieldset>
+		<legend>{L_CUSTOM_BOX_COLOURS}</legend>
+
+		<p>{L_CUSTOM_BOX_COLOURS_EXPLAIN}</p><br />
+
+		<dl>
+			<dt><label for="cookie_custom_box">{L_COOKIE_CUSTOM_BOX}{L_COLON}</label><br /><span>{L_COOKIE_CUSTOM_BOX_EXPLAIN}</span></dt>
+			<dd><input type="radio" class="radio" name="cookie_custom_box" value="1" id="cookie_custom_box"<!-- IF COOKIE_CUSTOM_BOX --> checked="checked"<!-- ENDIF -->/> {L_YES}
+				<input type="radio" class="radio" name="cookie_custom_box" value="0" <!-- IF not COOKIE_CUSTOM_BOX --> checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="cookie_box_bg_colour">{L_COOKIE_BOX_BG_COLOUR}{L_COLON}</label><br /><span>{L_COOKIE_BOX_BG_COLOUR_EXPLAIN}</span></dt>
+			<dd><input class="color" name="cookie_box_bg_colour" type="text" id="cookie_box_bg_colour" value="{COOKIE_BOX_BG_COLOUR}" size="6" maxlength="6" />&nbsp;{L_CLICK_TO_SELECT}</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="cookie_box_txt_colour">{L_COOKIE_BOX_TXT_COLOUR}{L_COLON}</label><br /><span>{L_COOKIE_BOX_TXT_COLOUR_EXPLAIN}</span></dt>
+			<dd><input class="color" name="cookie_box_txt_colour" type="text" id="cookie_box_txt_colour" value="{COOKIE_BOX_TXT_COLOUR}" size="6" maxlength="6" />&nbsp;{L_CLICK_TO_SELECT}</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="cookie_box_href_colour">{L_COOKIE_BOX_HREF_COLOUR}{L_COLON}</label><br /><span>{L_COOKIE_BOX_HREF_COLOUR_EXPLAIN}</span></dt>
+			<dd><input class="color" name="cookie_box_href_colour" type="text" id="cookie_box_href_colour" value="{COOKIE_BOX_HREF_COLOUR}" size="6" maxlength="6" />&nbsp;{L_CLICK_TO_SELECT}</dd>
+		</dl>
+	</fieldset>
+
+	<fieldset>
+		<legend>{L_CUSTOM_PAGE_COLOURS}</legend>
+
+		<p>{L_CUSTOM_PAGE_COLOURS_EXPLAIN}</p><br />
+
+		<dl>
+			<dt><label for="cookie_custom_page">{L_COOKIE_CUSTOM_PAGE}{L_COLON}</label><br /><span>{L_COOKIE_CUSTOM_PAGE_EXPLAIN}</span></dt>
+			<dd><input type="radio" class="radio" name="cookie_custom_page" value="1" id="cookie_custom_page"<!-- IF COOKIE_CUSTOM_PAGE --> checked="checked"<!-- ENDIF -->/> {L_YES}
+				<input type="radio" class="radio" name="cookie_custom_page" value="0" <!-- IF not COOKIE_CUSTOM_PAGE --> checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="cookie_page_bg_colour">{L_COOKIE_PAGE_BG_COLOUR}{L_COLON}</label><br /><span>{L_COOKIE_PAGE_BG_COLOUR_EXPLAIN}</span></dt>
+			<dd><input class="color" name="cookie_page_bg_colour" type="text" id="cookie_page_bg_colour" value="{COOKIE_PAGE_BG_COLOUR}" size="6" maxlength="6" />&nbsp;{L_CLICK_TO_SELECT}</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="cookie_page_txt_colour">{L_COOKIE_PAGE_TXT_COLOUR}{L_COLON}</label><br /><span>{L_COOKIE_PAGE_TXT_COLOUR_EXPLAIN}</span></dt>
+			<dd><input class="color" name="cookie_page_txt_colour" type="text" id="cookie_page_txt_colour" value="{COOKIE_PAGE_TXT_COLOUR}" size="6" maxlength="6" />&nbsp;{L_CLICK_TO_SELECT}</dd>
+		</dl>
+	</fieldset>
+
+	<fieldset>
+		<legend>{L_ACP_SUBMIT_CHANGES}</legend>
+		<p class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+		</p>
+		{S_FORM_TOKEN}
+	</fieldset>
+
+	<fieldset>
+		<legend>{L_UNBAN_IP}</legend>
+
+		<p>{L_UNBAN_IP_EXPLAIN}<br /><br />
+		{L_YOUR_IP} {L_COLON} <strong>{SERVER_IP}</strong></p>
+	</fieldset>
+</form>
+
+<!-- INCLUDE overall_footer.html -->
