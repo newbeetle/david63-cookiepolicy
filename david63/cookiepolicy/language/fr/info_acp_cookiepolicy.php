@@ -1,10 +1,11 @@
 <?php
 /**
 *
-* @package Cookie Policy Extension
-* @copyright (c) 2014 david63
+* Cookie Policy extension for the phpBB Forum Software package.
+* French translation by Galixte (http://www.galixte.com)
+*
+* @copyright (c) 2015 david63
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
-* @translated into French by Galixte (http://www.galixte.com)
 *
 */
 
@@ -21,7 +22,7 @@ if (empty($lang) || !is_array($lang))
 	$lang = array();
 }
 
-/// DEVELOPERS PLEASE NOTE
+// DEVELOPERS PLEASE NOTE
 //
 // All language files should use UTF-8 as their encoding and the files must not contain a BOM.
 //
@@ -34,13 +35,14 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 //
 // Some characters you may want to copy&paste:
-// ’ » “ ” …
+// ’ « » “ ” …
 //
 
 $lang = array_merge($lang, array(
 	'ALL'								=> 'Tous',
 
 	'CLICK_TO_SELECT'					=> 'Cliquer dans la boite pour sélectionner une couleur',
+	'CLOSE_PICKER'						=> 'Fermer',
 
 	'COOKIE_BOX_BG_COLOUR'				=> 'Couleur personnalisée de l’arrière-plan de la boite des cookies',
 	'COOKIE_BOX_BG_COLOUR_EXPLAIN'		=> 'Sélectionner une couleur d’arrière-plan pour la boite d’acceptation des cookies.',
@@ -63,7 +65,6 @@ $lang = array_merge($lang, array(
 	'COOKIE_EXPIRE_EXPLAIN'				=> 'Paramétrer cette option sur oui oblige l’utilisateur à accepter la politique des cookies chaque année.',
 
 	'COOKIE_LEFT'						=> 'Gauche',
-
 	'COOKIE_LOG_ERRORS'					=> 'Journal des erreurs',
 	'COOKIE_LOG_ERRORS_EXPLAIN'			=> 'Ce journal vous fournit la liste des erreurs détectées par adresse IP de l’utilisateur.',
 
@@ -74,7 +75,7 @@ $lang = array_merge($lang, array(
 
 	'COOKIE_POLICY'						=> 'Politique des cookies',
 	'COOKIE_POLICY_ENABLE'				=> 'Activer la politique des cookies',
-	'COOKIE_POLICY_ENABLE_EXPLAIN'		=> 'Active/désactive sur le forum la condition requise d’accepter les cookies pour tous les utilisateurs étant concernés par la directive EU Cookie (2012).',
+	'COOKIE_POLICY_ENABLE_EXPLAIN'		=> 'Active / désactive sur le forum la condition requise d’accepter les cookies pour tous les utilisateurs étant concernés par la directive EU Cookie (2012).',
 	'COOKIE_POLICY_EXPLAIN'				=> 'Définir les options pour gérer la politique des cookies.',
 	'COOKIE_POLICY_LOG'					=> '<strong>Les paramètres de la politique des cookies ont été mise à jour</strong>',
 	'COOKIE_POLICY_MANAGE'				=> 'Gestion des paramètres',
@@ -85,7 +86,7 @@ $lang = array_merge($lang, array(
 	'COOKIE_RIGHT'						=> 'Droite',
 
 	'COOKIE_SHOW_POLICY'				=> 'Afficher la politique des cookies',
-	'COOKIE_SHOW_POLICY_EXPLAIN'		=> 'Paramétrer cette option sur oui affichera le lien de la barre de navigation de la politique des cookies lorsque la politique des cookies est désactivée, par exemple vous pouvez avoir une politique des cookies sans la nécessité d’avoir la boîte d’acceptation.',
+	'COOKIE_SHOW_POLICY_EXPLAIN'		=> 'Paramétrer cette option sur oui affichera le lien de la politique des cookies dans la barre de navigation lorsque la politique des cookies est désactivée, par exemple vous pouvez avoir une politique des cookies sans la nécessité d’avoir la boîte d’acceptation.',
 
 	'CUSTOM_BOX_COLOURS'				=> 'Couleurs personnalisées de la boite des cookies',
 	'CUSTOM_BOX_COLOURS_EXPLAIN'		=> '<strong>Ici vous pouvez modifier les couleurs selon votre style pour la boite d’acceptation des cookies.</strong>',
@@ -95,4 +96,9 @@ $lang = array_merge($lang, array(
 	'LOG_COOKIE_ERROR'					=> '<strong>Échec de la recherche d’IP</stong>',
 	'LOG_CURL_ERROR'					=> '<strong>cURL n’est pas disponible sur ce serveur</stong>',
 	'LOG_SERVER_ERROR'					=> '<strong>Impossible de se connecter à l’IP du serveur</strong>',
+
+	'UNBAN_IP'							=> 'Lever l’interdiction de l’adresse IP',
+	'UNBAN_IP_EXPLAIN'					=> 'Le système va automatiquement bannir toute adresse IP effectuant plus de 250 requêtes par minute. Si votre adresse IP a été bannie, <a href="http://ip-api.com/docs/unban">cliquez ici</a> pour accéder au formulaire de levée d’interdiction.',
+
+	'YOUR_IP'							=> 'L’adresse IP de votre serveur semble être',
 ));
