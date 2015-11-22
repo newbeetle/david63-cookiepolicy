@@ -41,6 +41,10 @@ $lang = array_merge($lang, array(
 
 	'CLICK_TO_SELECT'					=> 'Clic en el cuadro para seleccionar un color',
 
+	'COOKIE_BOX_BDR_COLOUR'				=> 'Color del borde del cuadro de Cookie',
+	'COOKIE_BOX_BDR_COLOUR_EXPLAIN'		=> 'Seleccione el color del borde del cuadro de aceptación de Cookie.<br />El color por defecto es <strong>“#FFFF8A”</strong>',
+	'COOKIE_BOX_BDR_WIDTH'				=> 'Anchura del borde del cuadro de Cookie',
+	'COOKIE_BOX_BDR_WIDTH_EXPLAIN'		=> 'Seleccione el ancho del borde del cuadro de aceptación de Cookie.<br />El ancho por defecto es <strong>“1”</strong>',
 	'COOKIE_BOX_BG_COLOUR'				=> 'Color personalizado del fondo del cuadro de Cookie',
 	'COOKIE_BOX_BG_COLOUR_EXPLAIN'		=> 'Seleccione el color del fondo del cuadro de aceptación de Cookie.',
 	'COOKIE_BOX_HREF_COLOUR'			=> 'Color personalizado del enlace del cuadro de Cookie',
@@ -50,8 +54,6 @@ $lang = array_merge($lang, array(
 	'COOKIE_BOX_POSITION'				=> 'Posición del cuadro de Cookie',
 	'COOKIE_BOX_POSITION_EXPLAIN'		=> 'Posición del cuadro de aceptación, a izquierda o derecha.',
 
-	'COOKIE_CUSTOM_BOX'					=> 'Usar colores personalizados para el cuadro de Cookie',
-	'COOKIE_CUSTOM_BOX_EXPLAIN'			=> 'Usar los colores personalizados para el cuadro de aceptación de Cookie.<br />Ajuste esto en <strong>No</strong> para usar los colores por defecto.',
 	'COOKIE_CUSTOM_PAGE'				=> 'Usar colores personalizados para la página de Cookie',
 	'COOKIE_CUSTOM_PAGE_EXPLAIN'		=> 'Usar colores personalizados para la página de Política de Cookies.<br />Ajuste esto en <strong>No</strong> para usar los colores por defecto.',
 
@@ -93,4 +95,11 @@ $lang = array_merge($lang, array(
 	'LOG_COOKIE_ERROR'					=> '<strong>Error de búsqueda de IP</stong>',
 	'LOG_CURL_ERROR'					=> '<strong>cURL no está disponible en este servidor</stong>',
 	'LOG_SERVER_ERROR'					=> '<strong>No se pudo conectar con el servidor IP</strong>',
+
+	'PIXELS'							=> 'px',
+
+	'UNBAN_IP'							=> 'Desbloquear dirección IP',
+	'UNBAN_IP_EXPLAIN'					=> 'El sistema bloqueará automáticamente cualquier dirección IP haciendo más de 250 solicitudes por minuto. Si su dirección IP ha sido excluida, haga <a href="http://ip-api.com/docs/unban">clic aquí</a> para acceder al formulario de desbloqueo.',
+
+	'YOUR_IP'							=> 'La dirección IP del servidor parece ser que',
 ));
