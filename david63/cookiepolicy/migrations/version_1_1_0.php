@@ -13,7 +13,7 @@ class version_1_1_0 extends \phpbb\db\migration\migration
 {
 	static public function depends_on()
 	{
-		return array('david63\cookiepolicy\migrations\version_1_0_0');
+		return array('\david63\cookiepolicy\migrations\version_1_0_0');
 	}
 
 	public function update_data()

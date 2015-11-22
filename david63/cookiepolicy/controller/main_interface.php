@@ -17,7 +17,7 @@ namespace david63\cookiepolicy\controller;
 interface main_interface
 {
 	/**
-	* Display the User Ranks page
+	* Display the Cookie Policy page
 	*
 	* @return \Symfony\Component\HttpFoundation\Response A Symfony Response object
 	* @access public

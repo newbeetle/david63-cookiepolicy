@@ -5,14 +5,26 @@
 
     	if (cookieAccept != true) {
 			$(".cookieAcceptBox").addClass(cookieClass);
-        	$(".cookieAcceptBox").html(cookieText + '<a href="#">' + acceptText + '</a>');
+        	$(".cookieAcceptBox").html(cookieText + '<a href="' + cookiePage + '">' + cookieLink + '</a> <a href="#">' + acceptText + '</a>');
+
+			// Set the css elements from the variables
+			$('.cookieAcceptBox').css({'background-color': cookieBoxBgColour, 'color': cookieBoxTxtColour, 'border': cookieBoxBdWidth + 'px solid' + cookieBoxBdColour });
+			$('.cookieAcceptBox a').css('color', cookieBoxHrefColour);
+
         	$(".cookieAcceptBox").fadeIn(300);
-        	$(".cookieAcceptBox a").click(function ()
-			{
-            	$(".cookieAcceptBox").fadeOut(300);
-            	setCookie(cookieName);
+        	$(".cookieAcceptBox a").click(function () {
+				if ($(this).is('[href*=#]')) {
+            		$(".cookieAcceptBox").fadeOut(300);
+            		setCookie(cookieName);
+				}
         	})
     	}
+
+		//Set the custom css colours when on the Cookie Page
+		if (($(location).attr('href').indexOf("cookiepage") >=0 ) && (cookieCustomPage == true)) {
+			$('#page-body').css({'background-color': cookiePageBgColour, 'color': cookiePageTxtColour, 'padding': '5px'});
+			$('h3').css('color', cookiePageTxtColour);
+		}
 	})
 
 	function setCookie(cookieName) {

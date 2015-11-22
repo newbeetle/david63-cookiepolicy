@@ -41,7 +41,7 @@ class listener implements EventSubscriberInterface
 	* Constructor for listener
 	*
 	* @param \phpbb\config\config		$config		Config object
-	* @param \phpbb\template\twig\twig	$template	Template object
+	* @param \phpbb\template\template	$template	Template object
 	* @param \phpbb\user                $user		User object
 	* @param \phpbb\log\log				$log		phpBB log
 	* @param \phpbb\controller\helper	$helper		Helper object
@@ -153,14 +153,14 @@ class listener implements EventSubscriberInterface
 			}
 
 			$this->template->assign_vars(array(
+				'COOKIE_BOX_BD_COLOUR'		=> addslashes($this->config['cookie_box_bdr_colour']),
+				'COOKIE_BOX_BD_WIDTH'		=> addslashes($this->config['cookie_box_bdr_width']),
 				'COOKIE_BOX_BG_COLOUR'		=> addslashes($this->config['cookie_box_bg_colour']),
 				'COOKIE_BOX_HREF_COLOUR'	=> addslashes($this->config['cookie_box_href_colour']),
 				'COOKIE_BOX_TXT_COLOUR'		=> addslashes($this->config['cookie_box_txt_colour']),
 				'COOKIE_CLASS'				=> $this->config['cookie_box_position'] ? addslashes('cookie-box rightside') : addslashes('cookie-box leftside'),
 				'COOKIE_EXPIRES'			=> addslashes($this->config['cookie_expire']),
 				'COOKIE_NAME'				=> addslashes($this->config['cookie_name']),
-
-				'S_COOKIE_CUSTOM_BOX'		=> $this->config['cookie_custom_box'],
 			));
 		}
 
@@ -173,10 +173,11 @@ class listener implements EventSubscriberInterface
 	public function page_footer($event)
 	{
 		$this->template->assign_vars(array(
+			'S_COOKIE_CUSTOM_PAGE'	=> $this->config['cookie_custom_page'],
 			'S_COOKIE_ON_INDEX'		=> $this->config['cookie_on_index'],
 			'S_COOKIE_SHOW_POLICY'	=> $this->config['cookie_show_policy'],
+			'U_COOKIE_PAGE'			=> $this->helper->route('david63_cookiepolicy_controller', array('name' => 'cookiepage')),
 
-			'U_COOKIE_PAGE'			=> $this->helper->route('david63_cookiepolicy_controller', array('name' => 'cookie')),
 		));
 	}
 }

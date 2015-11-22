@@ -326,8 +326,8 @@
 			this.pickerSmartPosition = true; // automatically adjust picker position when necessary
 			this.pickerFixedPosition = false; // set to true to stop picker from moving on scroll
 			this.pickerButtonHeight = 20; // px
-			this.pickerClosable = true;
-			this.pickerCloseText = ClosePicker; // Lang variable (phpBB)
+			this.pickerClosable = false;
+			this.pickerCloseText = '';
 			this.pickerButtonColor = 'ButtonText'; // CSS color
 			this.pickerFace = 10; // px
 			this.pickerFaceColor = 'ThreeDFace'; // CSS color

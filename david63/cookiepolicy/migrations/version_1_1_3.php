@@ -13,12 +13,16 @@ class version_1_1_3 extends \phpbb\db\migration\migration
 {
 	static public function depends_on()
 	{
-		return array('david63\cookiepolicy\migrations\version_1_1_0');
+		return array('\david63\cookiepolicy\migrations\version_1_0_0');
 	}
 
 	public function update_data()
 	{
 		return array(
+			array('config.add', array('cookie_box_bdr_colour', '#FFFF8A')),
+			array('config.add', array('cookie_box_bdr_width', '1')),
+
+			array('config.remove', array('cookie_custom_box')),
 			array('config.remove', array('version_cookiepolicy')),
 		);
 	}

@@ -40,19 +40,20 @@ $lang = array_merge($lang, array(
 	'ALL'								=> 'All',
 
 	'CLICK_TO_SELECT'					=> 'Click in the box to select a colour',
-	'CLOSE_PICKER'						=> 'Close',
 
-	'COOKIE_BOX_BG_COLOUR'				=> 'Custom cookie box background colour',
-	'COOKIE_BOX_BG_COLOUR_EXPLAIN'		=> 'Select the background colour for the Cookie acceptance box.',
-	'COOKIE_BOX_HREF_COLOUR'			=> 'Custom cookie box link colour',
-	'COOKIE_BOX_HREF_COLOUR_EXPLAIN'	=> 'Select the acceptance link colour for the Cookie acceptance box.',
-	'COOKIE_BOX_TXT_COLOUR'				=> 'Custom cookie box text colour',
-	'COOKIE_BOX_TXT_COLOUR_EXPLAIN'		=> 'Select the text colour for the Cookie acceptance box.',
+	'COOKIE_BOX_BDR_COLOUR'				=> 'Cookie box border colour',
+	'COOKIE_BOX_BDR_COLOUR_EXPLAIN'		=> 'Select the border colour for the Cookie acceptance box.<br />The default colour is <strong>“#FFFF8A”</strong>',
+	'COOKIE_BOX_BDR_WIDTH'				=> 'Cookie box border width',
+	'COOKIE_BOX_BDR_WIDTH_EXPLAIN'		=> 'Select the border colour for the Cookie acceptance box.<br />The default colour is <strong>“1”</strong>',
+	'COOKIE_BOX_BG_COLOUR'				=> 'Cookie box background colour',
+	'COOKIE_BOX_BG_COLOUR_EXPLAIN'		=> 'Select the background colour for the Cookie acceptance box.<br />The default colour is <strong>“#00608F”</strong>',
+	'COOKIE_BOX_HREF_COLOUR'			=> 'Cookie box link colour',
+	'COOKIE_BOX_HREF_COLOUR_EXPLAIN'	=> 'Select the acceptance link colour for the Cookie acceptance box.<br />The default colour is <strong>“#FFFFFF”</strong>',
+	'COOKIE_BOX_TXT_COLOUR'				=> 'Cookie box text colour',
+	'COOKIE_BOX_TXT_COLOUR_EXPLAIN'		=> 'Select the text colour for the Cookie acceptance box.<br />The default colour is <strong>“#DBDB00”</strong>',
 	'COOKIE_BOX_POSITION'				=> 'Cookie box position',
 	'COOKIE_BOX_POSITION_EXPLAIN'		=> 'Position the cookie acceptance box on the left or right.',
 
-	'COOKIE_CUSTOM_BOX'					=> 'Use custom cookie box colours',
-	'COOKIE_CUSTOM_BOX_EXPLAIN'			=> 'Use the custom colours for theCookie acceptance box.<br />Setting this to <strong>No</strong> will use the default colours.',
 	'COOKIE_CUSTOM_PAGE'				=> 'Use custom cookie page colours',
 	'COOKIE_CUSTOM_PAGE_EXPLAIN'		=> 'Use the custom colours for theCookie policy page.<br />Setting this to <strong>No</strong> will use the default colours.',
 
@@ -86,7 +87,7 @@ $lang = array_merge($lang, array(
 	'COOKIE_SHOW_POLICY'				=> 'Show cookie policy',
 	'COOKIE_SHOW_POLICY_EXPLAIN'		=> 'Setting this to yes will display the nav bar link to the cookie policy when the Cookie Policy is disabled, i.e. you can have a cookie policy without the need to have the acceptance box.',
 
-	'CUSTOM_BOX_COLOURS'				=> 'Custom cookie box colours',
+	'CUSTOM_BOX_COLOURS'				=> 'Cookie box colours',
 	'CUSTOM_BOX_COLOURS_EXPLAIN'		=> '<strong>Here you can change the colours to suit your style for the Cookie acceptance box.</strong>',
 	'CUSTOM_PAGE_COLOURS'				=> 'Custom cookie page colours',
 	'CUSTOM_PAGE_COLOURS_EXPLAIN'		=> '<strong>Here you can change the colours to suit your style for the Cookie policy page.</strong>',
@@ -94,6 +95,8 @@ $lang = array_merge($lang, array(
 	'LOG_COOKIE_ERROR'					=> '<strong>Failed IP lookup</stong>',
 	'LOG_CURL_ERROR'					=> '<strong>cURL is not available on this server</stong>',
 	'LOG_SERVER_ERROR'					=> '<strong>Could not connect to IP server</strong>',
+
+	'PIXELS'							=> 'px',
 
 	'UNBAN_IP'							=> 'Unban IP address',
 	'UNBAN_IP_EXPLAIN'					=> 'The system will automatically ban any IP address making over 250 requests per minute. If your IP address has been banned, <a href="http://ip-api.com/docs/unban">click here</a> to access an unban form.',
