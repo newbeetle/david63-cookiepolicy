@@ -91,8 +91,8 @@ $lang = array_merge($lang, array(
 	'CUSTOM_PAGE_COLOURS'				=> 'Custom cookie page colours',
 	'CUSTOM_PAGE_COLOURS_EXPLAIN'		=> '<strong>Here you can change the colours to suit your style for the Cookie policy page.</strong>',
 
-	'LOG_COOKIE_ERROR'					=> '<strong>Failed IP lookup</stong>',
-	'LOG_CURL_ERROR'					=> '<strong>cURL is not available on this server</stong>',
+	'LOG_COOKIE_ERROR'					=> '<strong>Failed IP lookup</strong>',
+	'LOG_CURL_ERROR'					=> '<strong>cURL is not available on this server</strong>',
 	'LOG_SERVER_ERROR'					=> '<strong>Could not connect to IP server</strong>',
 
 	'UNBAN_IP'							=> 'Unban IP address',
