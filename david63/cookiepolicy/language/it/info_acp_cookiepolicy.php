@@ -63,6 +63,6 @@ $lang = array_merge($lang, array(
 	'COOKIE_SHOW_POLICY'				=> 'Mostra Politica sui cookies',
 	'COOKIE_SHOW_POLICY_EXPLAIN'		=> 'Se impostato su <strong>Si</strong>, verrà mostrato il link <strong>Politica sui cookies</strong> sulla navbar quando l’opzione <strong>Abilita cookies</strong> è disabilitata. Per esempio, è possibile avere una politica sui cookies senza la necessità di visualizzare il box di accettazione.',
 
-	'LOG_COOKIE_ERROR'					=> '<strong>Ricerca IP non riuscita</stong>',
+	'LOG_COOKIE_ERROR'					=> '<strong>Ricerca IP non riuscita</strong>',
 	'LOG_SERVER_ERROR'					=> '<strong>Impossibile connettersi al server IP</strong>',
 ));
