@@ -93,8 +93,8 @@ $lang = array_merge($lang, array(
 	'CUSTOM_PAGE_COLOURS'				=> 'Couleurs personnalisées de la page des cookies',
 	'CUSTOM_PAGE_COLOURS_EXPLAIN'		=> '<strong>Ici vous pouvez modifier les couleurs selon votre style pour la page de la politique des cookies.</strong>',
 
-	'LOG_COOKIE_ERROR'					=> '<strong>Échec de la recherche d’IP</stong>',
-	'LOG_CURL_ERROR'					=> '<strong>cURL n’est pas disponible sur ce serveur</stong>',
+	'LOG_COOKIE_ERROR'					=> '<strong>Échec de la recherche d’IP</strong>',
+	'LOG_CURL_ERROR'					=> '<strong>cURL n’est pas disponible sur ce serveur</strong>',
 	'LOG_SERVER_ERROR'					=> '<strong>Impossible de se connecter à l’IP du serveur</strong>',
 
 	'UNBAN_IP'							=> 'Lever l’interdiction de l’adresse IP',
