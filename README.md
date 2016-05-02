@@ -1,9 +1,6 @@
 # david63-cookiepolicy
 Adds an option for the user to accept the use of cookies, under EU Cookie Directive (2012), on the forum
 
-### Note
-	This extension will only work on phpBB 3.2.x or greater
-
 ## Install
     1. Download the latest release.
     2. Unzip the downloaded release.
