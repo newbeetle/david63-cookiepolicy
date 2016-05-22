@@ -74,7 +74,7 @@ $lang = array_merge($lang, array(
 	'CUSTOM_BOX_COLOURS_EXPLAIN'		=> '<strong>Selles sektsioonis saad muuta küpsiste teabe aktsepteerimis kasti värve ja kohanda oma stiiliga vastavaks.</strong>',
 	'CUSTOM_PAGE_COLOURS'				=> 'Küpsiste teabe lehekülje värvivalik',
 	'CUSTOM_PAGE_COLOURS_EXPLAIN'		=> '<strong>Selles sektsioonis saad muuta küpsiste teabe lehekülje värv all järgnevate valikutega.</strong>',
-	'LOG_COOKIE_ERROR'					=> '<strong>IP aadressi otsing ebaõnnestus</stong>',
-	'LOG_CURL_ERROR'					=> '<strong>cURL ei ole saadaval antud serveris</stong>',
+	'LOG_COOKIE_ERROR'					=> '<strong>IP aadressi otsing ebaõnnestus</strong>',
+	'LOG_CURL_ERROR'					=> '<strong>cURL ei ole saadaval antud serveris</strong>',
 	'LOG_SERVER_ERROR'					=> '<strong>Ei saanud ühendada IP serveriga</strong>',
 ));

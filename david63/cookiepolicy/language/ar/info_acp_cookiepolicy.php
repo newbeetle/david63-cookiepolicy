@@ -92,8 +92,8 @@ $lang = array_merge($lang, array(
 	'CUSTOM_PAGE_COLOURS'				=> 'تخصيص الألوان لصفحة الكوكيز',
 	'CUSTOM_PAGE_COLOURS_EXPLAIN'		=> '<strong>تستطيع هنا تغيير ألوان صفحة سياسة الكوكيز لكي يناسب استايل منتداك.</strong>',
 
-	'LOG_COOKIE_ERROR'					=> '<strong>فشل في البحث عن عنوان الـIP</stong>',
-	'LOG_CURL_ERROR'					=> '<strong>مكتبة الإتصال cURL غير موجود في هذا السيرفر</stong>',
+	'LOG_COOKIE_ERROR'					=> '<strong>فشل في البحث عن عنوان الـIP</strong>',
+	'LOG_CURL_ERROR'					=> '<strong>مكتبة الإتصال cURL غير موجود في هذا السيرفر</strong>',
 	'LOG_SERVER_ERROR'					=> '<strong>غير قادر على الإتصال بعنوان الآي بي للسيرفر</strong>',
 
 	'UNBAN_IP'							=> 'رفع الحظر عن عنوان الـIP ',
