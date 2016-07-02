@@ -89,15 +89,6 @@ $lang = array_merge($lang, array(
 	'CUSTOM_PAGE_COLOURS'				=> 'Custom cookie page colours',
 	'CUSTOM_PAGE_COLOURS_EXPLAIN'		=> '<strong>Here you can change the colours to suit your style for the Cookie policy page.</strong>',
 
-	'LOG_CURL_ERROR'					=> '<strong>cURL is not available on this server</strong>',
-	'LOG_RETURN_ERROR'					=> array(
-		'private range'		=> '<strong>The IP address is part of a private range</strong>',
-		'reserved range'	=> '<strong>The IP address is part of a reserved range</strong>',
-		'invalid query'		=> '<strong>Invalid IP address or domain name</strong>',
-		'quota'				=> '<strong>The lookup quota has been exceeded</strong>',
-	),
-	'LOG_SERVER_ERROR'					=> '<strong>Could not connect to IP server</strong>',
-
 	'PIXELS'							=> 'px',
 
 	'UNBAN_IP'							=> 'Unban IP address',

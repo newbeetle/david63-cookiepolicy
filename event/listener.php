@@ -138,7 +138,9 @@ class listener implements EventSubscriberInterface
 						}
 						else if ($ip_array['status'] != 'success' && $this->config['cookie_log_errors'])
 						{
-							$this->log->add('critical', $this->user->data['user_id'], $this->user->ip, 'LOG_RETURN_ERROR'[$ip_array['message']]);
+							// Need to create the language variable
+							$lang_var = 'LOG_RETURN_ERROR_' . str_replace(' ', '_', strtoupper($ip_array['message']));
+							$this->log->add('critical', $this->user->data['user_id'], $this->user->ip, $lang_var);
 						}
 					}
 					else if ($this->config['cookie_log_errors'])
