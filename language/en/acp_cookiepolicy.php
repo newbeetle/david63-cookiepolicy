@@ -93,4 +93,6 @@ $lang = array_merge($lang, array(
 
 	'UNBAN_IP'							=> 'Unban IP address',
 	'UNBAN_IP_EXPLAIN'					=> 'The system will automatically ban any IP address making over %1$s requests per minute. If your IP address has been banned, <a href="http://ip-api.com/docs/unban">click here</a> to access an unban form.<br /><br />Your server IP address appears to be <strong>%2$s</strong>',
+
+	'VERSION'							=> 'Version',
 ));
