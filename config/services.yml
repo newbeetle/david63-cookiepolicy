@@ -26,5 +26,5 @@ services:
             - '@request'
             - '@template'
             - '@user'
-            - '@service_container'
             - '@language'
+            - '@log'

@@ -29,11 +29,11 @@ class admin_controller implements admin_interface
 	/** @var \phpbb\user */
 	protected $user;
 
-	/** @var ContainerInterface */
-	protected $container;
-
 	/** @var phpbb\language\language */
 	protected $language;
+
+	/** @var \phpbb\log\log */
+	protected $log;
 
 	/** @var string Custom form action */
 	protected $u_action;
@@ -45,20 +45,20 @@ class admin_controller implements admin_interface
 	* @param \phpbb\request\request		$request	Request object
 	* @param \phpbb\template\template	$template	Template object
 	* @param \phpbb\user				$user		User object
-	* @param ContainerInterface			$container	Service container interface
 	* @param phpbb\language\language	$language
+	* @param \phpbb\log\log				$log
 	*
 	* @return \david63\cookiepolicy\controller\admin_controller
 	* @access public
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\request\request $request, \phpbb\template\template $template, \phpbb\user $user, ContainerInterface $container, \phpbb\language\language $language)
+	public function __construct(\phpbb\config\config $config, \phpbb\request\request $request, \phpbb\template\template $template, \phpbb\user $user, \phpbb\language\language $language, \phpbb\log\log $log)
 	{
 		$this->config		= $config;
 		$this->request		= $request;
 		$this->template		= $template;
 		$this->user			= $user;
-		$this->container	= $container;
 		$this->language		= $language;
+		$this->log			= $log;
 	}
 
 	/**
@@ -91,8 +91,7 @@ class admin_controller implements admin_interface
 			$this->set_options();
 
 			// Add option settings change action to the admin log
-			$phpbb_log = $this->container->get('log');
-			$phpbb_log->add('admin', $this->user->data['user_id'], $this->user->ip, 'COOKIE_POLICY_LOG');
+			$this->log->add('admin', $this->user->data['user_id'], $this->user->ip, 'COOKIE_POLICY_LOG');
 
 			// Option settings have been updated and logged
 			// Confirm this to the user and provide link back to previous page
