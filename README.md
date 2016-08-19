@@ -4,9 +4,6 @@ Adds an option for the user to accept the use of cookies, under EU Cookie Direct
 ### Note
 	This extension will only work on phpBB 3.2.x or greater
 
-### Note
-	This extension will only work on phpBB 3.2.x or greater
-
 ## Install
     1. Download the latest release.
     2. Unzip the downloaded release.
