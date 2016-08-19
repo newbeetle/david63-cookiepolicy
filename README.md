@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/david63/david63-cookiepolicy.svg?branch=3.2)](https://travis-ci.org/david63/david63-cookiepolicy)
+
 # david63-cookiepolicy
 Adds an option for the user to accept the use of cookies, under EU Cookie Directive (2012), on the forum
 
