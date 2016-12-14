@@ -39,6 +39,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'COOKIE_ACCEPT_TEXT'	=> 'This forum uses cookies to give you the best and most relevant experience. By using this forum this means that you accept this policy.<br /><br />You can find out more about the cookies used by clicking the "Cookie policy" on the main page or the link below.<br /><br />',
 	'COOKIE_ACCEPT'			=> '[ I accept ]',
+	'COOKIE_ACCESS'			=> 'Cookie Access',
 
 	'COOKIE_TEXT'			=> '<h3>How do we use cookies on this forum?</h3>
 	<p>We use files known as cookies on %1$s to improve its performance and to enhance your user experience. By using %1$s you agree that we can place these types of files on your device.</p>
@@ -57,4 +58,7 @@ Certain cookies contain personal information – for example, if you click on "r
 <h3>Cookies on %1$s from social networking sites</h3><p>%1$s may have links to social networking websites (e.g. Facebook, Twitter or YouTube). These websites may also place cookies on your device and %1$s does not control how they use their cookies, therefore %1$s suggests you check their website(s) to see how they are using cookies.',
 
 	'COOKIE_POLICY'			=> 'Cookie Policy',
+
+	'COOKIE_REQUIRE_ACCESS'	=> '<h3>Cookie Acceptance Required</h3>
+	<p>You must accept the Cookie Policy of %1$s before you can either register on this site or, if already registered, before you can log-in to the site.</p>',
 ));

@@ -411,13 +411,13 @@
 		};
 
 		this.exportColor = function(flags) {
-			if(!(flags & leaveValue) && valueElement) {
+			if(!(flags && leaveValue) && valueElement) {
 				var value = this.toString();
 				if(this.caps) { value = value.toUpperCase(); }
 				if(this.hash) { value = '#'+value; }
 				valueElement.value = value;
 			}
-			if(!(flags & leaveStyle) && styleElement) {
+			if(!(flags && leaveStyle) && styleElement) {
 				styleElement.style.backgroundImage = "none";
 				styleElement.style.backgroundColor =
 					'#'+this.toString();
@@ -427,10 +427,10 @@
 					0.072 * this.rgb[2]
 					< 0.5 ? '#FFF' : '#000';
 			}
-			if(!(flags & leavePad) && isPickerOwner()) {
+			if(!(flags && leavePad) && isPickerOwner()) {
 				redrawPad();
 			}
-			if(!(flags & leaveSld) && isPickerOwner()) {
+			if(!(flags && leaveSld) && isPickerOwner()) {
 				redrawSld();
 			}
 		};
@@ -610,7 +610,7 @@
 					e.stopPropagation(); // prevent move "view" on broswer
 					e.preventDefault(); // prevent Default - Android Fix (else android generated only 1-2 touchmove events)
 				};
-				p.box.removeEventListener('touchmove', handle_touchmove, false)
+				p.box.removeEventListener('touchmove', handle_touchmove, false);
 				p.box.addEventListener('touchmove', handle_touchmove, false)
 			}
 			p.padM.onmouseup =
@@ -618,9 +618,17 @@
 			p.padM.onmousedown = function(e) {
 			// if the slider is at the bottom, move it up
 			switch(modeID) {
-				case 0: if (THIS.hsv[2] === 0) { THIS.fromHSV(null, null, 1.0); }; break;
-				case 1: if (THIS.hsv[1] === 0) { THIS.fromHSV(null, 1.0, null); }; break;
-				}
+                case 0:
+                    if (THIS.hsv[2] === 0) {
+                        THIS.fromHSV(null, null, 1.0);
+                    }
+                    break;
+                case 1:
+                    if (THIS.hsv[1] === 0) {
+                        THIS.fromHSV(null, 1.0, null);
+                    }
+                    break;
+            }
 				holdSld=false;
 				holdPad=true;
 				setPad(e);

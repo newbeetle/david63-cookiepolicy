@@ -9,6 +9,11 @@
 
 namespace david63\cookiepolicy\controller;
 
+use \phpbb\controller\helper;
+use \phpbb\template\template;
+use \phpbb\config\config;
+use \phpbb\language\language;
+
 class main_controller implements main_interface
 {
 	/** @var \phpbb\config\config */
@@ -26,12 +31,12 @@ class main_controller implements main_interface
 	/**
 	* Constructor
 	*
-	* @param \phpbb\config\config		$config
-	* @param \phpbb\controller\helper	$helper
-	* @param \phpbb\template\template	$template
-	* @param phpbb\language\language	$language
+	* @param \phpbb\config\config		$config		Config object
+	* @param \phpbb\controller\helper	$helper		Helper object
+	* @param \phpbb\template\template	$template	Template object
+	* @param \phpbb\language\language	$language	Language object
 	*/
-	public function __construct(\phpbb\controller\helper $helper, \phpbb\template\template $template, \phpbb\config\config $config, \phpbb\language\language $language)
+	public function __construct(helper $helper, template $template, config $config, language $language)
 	{
 		$this->config	= $config;
 		$this->helper	= $helper;
@@ -45,14 +50,26 @@ class main_controller implements main_interface
 	* @param string		$name
 	* @return \Symfony\Component\HttpFoundation\Response A Symfony Response object
 	*/
-	public function display($name)
+	public function cookieoutput($name)
 	{
+		switch ($name)
+		{
+			case 'policy':
+				$this->template->assign_var('COOKIE_MESSAGE', $this->language->lang('COOKIE_TEXT', $this->config['sitename']));
+				$output_name = $this->language->lang('COOKIE_POLICY');
+			break;
+
+			case 'access':
+				$this->template->assign_var('COOKIE_MESSAGE', $this->language->lang('COOKIE_REQUIRE_ACCESS', $this->config['sitename']));
+				$output_name = $this->language->lang('COOKIE_ACCESS');
+			break;
+		}
+
 		$this->template->assign_vars(array(
-			'COOKIE_MESSAGE'			=> $this->language->lang('COOKIE_TEXT', $this->config['sitename']),
 			'COOKIE_PAGE_BG_COLOUR'		=> $this->config['cookie_page_bg_colour'],
 			'COOKIE_PAGE_TXT_COLOUR'	=> $this->config['cookie_page_txt_colour'],
 		));
 
-		return $this->helper->render('cookie_body.html', $name);
+		return $this->helper->render('cookie_body.html', $output_name);
 	}
 }

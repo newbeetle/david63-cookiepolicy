@@ -16,11 +16,13 @@ namespace david63\cookiepolicy\controller;
 */
 interface main_interface
 {
-	/**
-	* Display the Cookie Policy page
-	*
-	* @return \Symfony\Component\HttpFoundation\Response A Symfony Response object
-	* @access public
-	*/
-	public function display($name);
+    /**
+     * Display the Cookie Policy page
+     *
+     * @param $name
+     *
+     * @return \Symfony\Component\HttpFoundation\Response A Symfony Response object
+     * @access public
+     */
+	public function cookieoutput($name);
 }

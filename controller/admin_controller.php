@@ -10,7 +10,13 @@
 namespace david63\cookiepolicy\controller;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use david63\cookiepolicy\ext;
+use \phpbb\config\config;
+use \phpbb\request\request;
+use \phpbb\template\template;
+use \phpbb\user;
+use \phpbb\language\language;
+use \phpbb\log\log;
+use \david63\cookiepolicy\ext;
 
 /**
 * Admin controller
@@ -45,13 +51,13 @@ class admin_controller implements admin_interface
 	* @param \phpbb\request\request		$request	Request object
 	* @param \phpbb\template\template	$template	Template object
 	* @param \phpbb\user				$user		User object
-	* @param phpbb\language\language	$language
+	* @param \phpbb\language\language	$language
 	* @param \phpbb\log\log				$log
 	*
 	* @return \david63\cookiepolicy\controller\admin_controller
 	* @access public
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\request\request $request, \phpbb\template\template $template, \phpbb\user $user, \phpbb\language\language $language, \phpbb\log\log $log)
+	public function __construct(config $config, request $request, template $template, user $user, language $language, log $log)
 	{
 		$this->config		= $config;
 		$this->request		= $request;
@@ -134,6 +140,7 @@ class admin_controller implements admin_interface
 			'COOKIE_POLICY_LOG_ERRORS'	=> isset($this->config['cookie_log_errors']) ? $this->config['cookie_log_errors'] : '',
 			'COOKIE_POLICY_ON_INDEX'	=> isset($this->config['cookie_on_index']) ? $this->config['cookie_on_index'] : '',
 			'COOKIE_POLICY_VERSION'		=> ext::COOKIE_POLICY_VERSION,
+			'COOKIE_REQUIRE'			=> isset($this->config['cookie_require_access']) ? $this->config['cookie_require_access'] : '',
 			'COOKIE_SHOW_POLICY'		=> isset($this->config['cookie_show_policy']) ? $this->config['cookie_show_policy'] : '',
 			'CURL'						=> $curl,
 
@@ -164,6 +171,7 @@ class admin_controller implements admin_interface
 		$this->config->set('cookie_page_bg_colour', $this->request->variable('cookie_page_bg_colour', ''));
 		$this->config->set('cookie_page_txt_colour', $this->request->variable('cookie_page_txt_colour', ''));
 		$this->config->set('cookie_policy_enabled', $this->request->variable('cookie_policy_enabled', ''));
+		$this->config->set('cookie_require_access', $this->request->variable('cookie_require_access', 0));
 		$this->config->set('cookie_show_policy', $this->request->variable('cookie_show_policy', 0));
 	}
 }

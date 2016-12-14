@@ -1,9 +1,12 @@
-;(function($, document) {
-	$(document).ready(function () {
+;(function($, document)
+{
+	$(document).ready(function ()
+	{
 		var cookieName		= phpbbCookieName + '_ca';
     	var cookieAccept	= getCookie(cookieName);
 
-    	if (cookieAccept != true) {
+    	if (cookieAccept != true)
+		{
 			$(".cookieAcceptBox").addClass(cookieClass);
         	$(".cookieAcceptBox").html(cookieText + '<a href="' + cookiePage + '">' + cookieLink + '</a> <a href="#">' + acceptText + '</a>');
 
@@ -12,8 +15,10 @@
 			$('.cookieAcceptBox a').css('color', cookieBoxHrefColour);
 
         	$(".cookieAcceptBox").fadeIn(300);
-        	$(".cookieAcceptBox a").click(function () {
-				if ($(this).is('[href*=#]')) {
+        	$(".cookieAcceptBox a").click(function ()
+			{
+				if ($(this).is('[href*=#]'))
+				{
             		$(".cookieAcceptBox").fadeOut(300);
             		setCookie(cookieName);
 				}
@@ -21,18 +26,21 @@
     	}
 
 		//Set the custom css colours when on the Cookie Page
-		if (($(location).attr('href').indexOf("cookiepage") >=0 ) && (cookieCustomPage == true)) {
+		if (($(location).attr('href').indexOf("cookiepage") >=0 ) && (cookieCustomPage == true))
+		{
 			$('#page-body').css({'background-color': cookiePageBgColour, 'color': cookiePageTxtColour, 'padding': '5px'});
 			$('h3').css('color', cookiePageTxtColour);
 		}
-	})
+	});
 
-	function setCookie(cookieName) {
+	function setCookie(cookieName)
+	{
 		var expire		= '';
         var expireDate	= new Date();
 		var expireTime	= 60 * 60 *24 * 365 * 1000; // Set default to one year
 
-		if (cookieExpires == false) {
+		if (cookieExpires == false)
+		{
 			expireTime = expireTime * 10; // Set to ten years
 		}
 
@@ -42,13 +50,16 @@
     	document.cookie = cookieName + '=1' + expire + '; path=/';
 	}
 
-	function getCookie(cookieName) {
+	function getCookie(cookieName)
+	{
     	var name	= cookieName + "=";
     	var chunk	= document.cookie.split(";");
 
-    	for (var i = 0; i < chunk.length; i++) {
+    	for (var i = 0; i < chunk.length; i++)
+		{
         	var element = chunk[i];
-        	while (element.charAt(0) == " ") {
+        	while (element.charAt(0) == " ")
+			{
         		element = element.substring(1, element.length);
 			}
         	if (element.indexOf(name) == 0) {

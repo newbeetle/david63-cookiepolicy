@@ -10,7 +10,9 @@
 
 namespace david63\cookiepolicy;
 
-class ext extends \phpbb\extension\base
+use \phpbb\extension\base;
+
+class ext extends base
 {
 	const COOKIE_POLICY_VERSION	= '2.1.0';
 	const LOOKUP_REQUEST_LIMIT	= '150'; // Use a constant then language files will not need changing if this changed

@@ -79,6 +79,8 @@ $lang = array_merge($lang, array(
 	'COOKIE_POLICY_ON_INDEX_EXPLAIN'	=> 'Show the cookie policy acceptance box on all pages or only on the index page.',
 	'COOKIE_POLICY_OPTIONS'				=> 'Cookie policy options',
 
+	'COOKIE_REQUIRE'					=> 'Require cookie acceptance',
+	'COOKIE_REQUIRE_EXPLAIN'			=> 'Require the acceptance of board cookies before a member can either register or log-in.',
 	'COOKIE_RIGHT'						=> 'Right',
 
 	'COOKIE_SHOW_POLICY'				=> 'Show cookie policy',

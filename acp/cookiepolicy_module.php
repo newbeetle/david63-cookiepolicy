@@ -15,10 +15,10 @@ class cookiepolicy_module
 
 	function main($id, $mode)
 	{
-		global $phpbb_container, $user;
+		global $phpbb_container;
 
 		$this->tpl_name		= 'cookiepolicy_manage';
-		$this->page_title	= $user->lang('COOKIE_POLICY');
+		$this->page_title	= $phpbb_container->get('language')->lang('COOKIE_POLICY');
 
 		// Get an instance of the admin controller
 		$admin_controller = $phpbb_container->get('david63.cookiepolicy.admin.controller');

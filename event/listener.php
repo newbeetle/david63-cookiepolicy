@@ -13,6 +13,12 @@ namespace david63\cookiepolicy\event;
 * @ignore
 */
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use \phpbb\config\config;
+use \phpbb\template\template;
+use \phpbb\user;
+use \phpbb\log\log;
+use \phpbb\controller\helper;
+use \phpbb\request\request;
 
 /**
 * Event listener
@@ -50,7 +56,7 @@ class listener implements EventSubscriberInterface
 	* @return \david63\cookiepolicy\event\listener
 	* @access public
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\template\template $template, \phpbb\user $user, \phpbb\log\log $log, \phpbb\controller\helper $helper, \phpbb\request\request $request)
+	public function __construct(config $config, template $template, user $user, log $log, helper $helper, request $request)
 	{
 		$this->config	= $config;
 		$this->template	= $template;
@@ -70,10 +76,22 @@ class listener implements EventSubscriberInterface
 	static public function getSubscribedEvents()
 	{
 		return array(
-			'core.user_setup'	=> 'load_language_on_setup',
-			'core.page_header'	=> 'page_header',
-			'core.page_footer'	=> 'page_footer',
+			'core.page_footer'			=> 'page_footer',
+			'core.page_header'			=> 'page_header',
+			'core.page_header_after'	=> 'check_cookie_accepted',
+			'core.user_setup'			=> 'load_language_on_setup',
 		);
+	}
+
+	public function check_cookie_accepted($event)
+	{
+		if ($this->config['cookie_require_access'] && !isset($_COOKIE[$this->config['cookie_name'] . '_ca']))
+		{
+			$this->template->assign_vars(array(
+				'U_REGISTER'		=> $this->helper->route('david63_cookiepolicy_cookieoutput', array('name' => 'access')),
+				'U_LOGIN_LOGOUT'	=> $this->helper->route('david63_cookiepolicy_cookieoutput', array('name' => 'access')),
+			));
+		}
 	}
 
 	/**
@@ -105,7 +123,7 @@ class listener implements EventSubscriberInterface
 		$cookie_enabled = $this->config['cookie_policy_enabled'];
 
 		// If we have already set the cookie on this device then there is no need to process
-		$cookie_set = $this->request->is_set($this->config['cookie_name'] . '_ca', \phpbb\request\request_interface::COOKIE) ? true : false;
+		$cookie_set = $this->request->is_set($this->config['cookie_name'] . '_ca', request_interface::COOKIE) ? true : false;
 
 		if ($this->config['cookie_policy_enabled'] && !$cookie_set && !$this->user->data['is_bot'])
 		{
@@ -178,7 +196,7 @@ class listener implements EventSubscriberInterface
 			'S_COOKIE_CUSTOM_PAGE'	=> $this->config['cookie_custom_page'],
 			'S_COOKIE_ON_INDEX'		=> $this->config['cookie_on_index'],
 			'S_COOKIE_SHOW_POLICY'	=> $this->config['cookie_show_policy'],
-			'U_COOKIE_PAGE'			=> $this->helper->route('david63_cookiepolicy_controller', array('name' => 'cookiepage')),
+			'U_COOKIE_PAGE'			=> $this->helper->route('david63_cookiepolicy_cookieoutput', array('name' => 'policy')),
 
 		));
 	}
