@@ -37,11 +37,13 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'COOKIE_ACCEPT_TEXT'	=> 'This forum uses cookies to give you the best and most relevant experience. By using this forum this means that you accept this policy.<br /><br />You can find out more about the cookies used by clicking the "Cookie policy" on the main page or the link below.<br /><br />',
+	'COOKIE_ACCEPT_TEXT'	=> 'This board uses cookies to give you the best and most relevant experience. To use this board this means that you need accept the policy.<br /><br />You can find out more about the cookies used by clicking the "Cookie policy" on the main page or the link below.<br /><br />',
 	'COOKIE_ACCEPT'			=> '[ I accept ]',
 	'COOKIE_ACCESS'			=> 'Cookie Access',
 
-	'COOKIE_TEXT'			=> '<h3>How do we use cookies on this forum?</h3>
+	'COOKIE_BLOCK'			=> 'You cannot access links on this board until you have accepted the Cookie Policy.',
+
+	'COOKIE_TEXT'			=> '<h3>How do we use cookies on this board?</h3>
 	<p>We use files known as cookies on %1$s to improve its performance and to enhance your user experience. By using %1$s you agree that we can place these types of files on your device.</p>
 <h3>What are cookies?</h3><p>Cookies are small text files that a website may put on your computer, or mobile device, when you first visit that site or one of its pages.<br /><br />
 There are many functions that a cookie can serve. For example, a cookie will help the website, or another website, to recognise your device the next time you visit it. %1$s uses the term "cookies" in this policy to refer to all files that collect information in this way.<br /><br />
@@ -51,7 +53,7 @@ Certain cookies contain personal information – for example, if you click on "r
 <p><b>2. Performance Cookies</b><br />These cookies may collect anonymous information on the pages visited. For example, we might use performance cookies to keep track of which pages are most popular, which method of linking between pages is most effective and to determine why some pages are receiving error messages.</p>
 <p><b>3. Functionality Cookies</b><br />These cookies remember choices you make to improve your experience.</p>
 <p>%1$s may also allow third parties to serve cookies that fall into any of the categories above. For example, like many sites, we may use Google Analytics to help us monitor our website traffic.</p>
-<h3>Can a forum user block cookies?</h3><p>To find out how to manage which cookies you allow, see your browser’s help section or your mobile device manual - or you can visit one of the sites below, which have detailed information on how to manage, control or delete cookies.<br /><br />
+<h3>Can a board user block cookies?</h3><p>To find out how to manage which cookies you allow, see your browser’s help section or your mobile device manual - or you can visit one of the sites below, which have detailed information on how to manage, control or delete cookies.<br /><br />
 <a href="http://www.aboutcookies.org" style="text-decoration:none">www.aboutcookies.org</a><br />
 <a href="http://www.allaboutcookies.org" style="text-decoration:none">www.allaboutcookies.org</a></p>
 <p>Please remember that if you do choose to disable cookies, you may find that certain sections of %1$s do not work properly.</p>
@@ -60,5 +62,5 @@ Certain cookies contain personal information – for example, if you click on "r
 	'COOKIE_POLICY'			=> 'Cookie Policy',
 
 	'COOKIE_REQUIRE_ACCESS'	=> '<h3>Cookie Acceptance Required</h3>
-	<p>You must accept the Cookie Policy of %1$s before you can either register on this site or, if already registered, before you can log-in to the site.</p>',
+	<p>You must accept the Cookie Policy of %1$s before you can either register on this site or, if you are already registered, before you can login to the site.</p>',
 ));

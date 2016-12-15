@@ -125,6 +125,7 @@ class admin_controller implements admin_interface
 
 		// Set output vars for display in the template
 		$this->template->assign_vars(array(
+			'COOKIE_BLOCK_LINKS'		=> isset($this->config['cookie_block_links']) ? $this->config['cookie_block_links'] : '',
 			'COOKIE_BOX_BDR_COLOUR'		=> isset($this->config['cookie_box_bdr_colour']) ? $this->config['cookie_box_bdr_colour'] : '',
 			'COOKIE_BOX_BDR_WIDTH'		=> isset($this->config['cookie_box_bdr_width']) ? $this->config['cookie_box_bdr_width'] : '',
 			'COOKIE_BOX_BG_COLOUR'		=> isset($this->config['cookie_box_bg_colour']) ? $this->config['cookie_box_bg_colour'] : '',
@@ -157,20 +158,21 @@ class admin_controller implements admin_interface
 	*/
 	protected function set_options()
 	{
+		$this->config->set('cookie_block_links', $this->request->variable('cookie_block_links', 0));
 		$this->config->set('cookie_box_bdr_colour', $this->request->variable('cookie_box_bdr_colour', ''));
-		$this->config->set('cookie_box_bdr_width', $this->request->variable('cookie_box_bdr_width', ''));
+		$this->config->set('cookie_box_bdr_width', $this->request->variable('cookie_box_bdr_width', 0));
 		$this->config->set('cookie_box_bg_colour', $this->request->variable('cookie_box_bg_colour', ''));
 		$this->config->set('cookie_box_href_colour', $this->request->variable('cookie_box_href_colour', ''));
-		$this->config->set('cookie_box_position', $this->request->variable('cookie_box_position', ''));
+		$this->config->set('cookie_box_position', $this->request->variable('cookie_box_position', 0));
 		$this->config->set('cookie_box_txt_colour', $this->request->variable('cookie_box_txt_colour', ''));
 		$this->config->set('cookie_custom_page', $this->request->variable('cookie_custom_page', 0));
-		$this->config->set('cookie_eu_detect', $this->request->variable('cookie_eu_detect', ''));
+		$this->config->set('cookie_eu_detect', $this->request->variable('cookie_eu_detect', 0));
 		$this->config->set('cookie_expire', $this->request->variable('cookie_expire', 0));
 		$this->config->set('cookie_log_errors', $this->request->variable('cookie_log_errors', 0));
 		$this->config->set('cookie_on_index', $this->request->variable('cookie_on_index', 0));
 		$this->config->set('cookie_page_bg_colour', $this->request->variable('cookie_page_bg_colour', ''));
 		$this->config->set('cookie_page_txt_colour', $this->request->variable('cookie_page_txt_colour', ''));
-		$this->config->set('cookie_policy_enabled', $this->request->variable('cookie_policy_enabled', ''));
+		$this->config->set('cookie_policy_enabled', $this->request->variable('cookie_policy_enabled', 0));
 		$this->config->set('cookie_require_access', $this->request->variable('cookie_require_access', 0));
 		$this->config->set('cookie_show_policy', $this->request->variable('cookie_show_policy', 0));
 	}

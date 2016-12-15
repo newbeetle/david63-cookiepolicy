@@ -1,5 +1,7 @@
 ;(function($, document)
 {
+	'use strict';
+
 	$(document).ready(function ()
 	{
 		var cookieName		= phpbbCookieName + '_ca';
@@ -22,6 +24,7 @@
             		$(".cookieAcceptBox").fadeOut(300);
             		setCookie(cookieName);
 				}
+				location.reload(true);
         	})
     	}
 
@@ -35,6 +38,8 @@
 
 	function setCookie(cookieName)
 	{
+		'use strict';
+
 		var expire		= '';
         var expireDate	= new Date();
 		var expireTime	= 60 * 60 *24 * 365 * 1000; // Set default to one year
@@ -48,10 +53,14 @@
         expire = '; expires=' + expireDate.toGMTString();
 
     	document.cookie = cookieName + '=1' + expire + '; path=/';
+
+		return null;
 	}
 
 	function getCookie(cookieName)
 	{
+		'use strict';
+
     	var name	= cookieName + "=";
     	var chunk	= document.cookie.split(";");
 
@@ -66,7 +75,7 @@
         		return element.substring(name.length, element.length);
 			}
     	}
-    	return null
+    	return null;
 	}
 
 })(jQuery, document);

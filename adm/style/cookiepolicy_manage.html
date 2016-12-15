@@ -22,11 +22,16 @@
 		</dl>
 
 		<dl>
+			<dt><label for="cookie_block_links">{{ lang('COOKIE_BLOCK_LINKS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_BLOCK_LINKS_EXPLAIN') }}</span></dt>
+			<dd><input type="radio" class="radio" name="cookie_block_links" value="1" id="cookie_block_links"{% if COOKIE_BLOCK_LINKS %} checked="checked"{% endif %}/> {{ lang('YES') }}
+				<input type="radio" class="radio" name="cookie_block_links" value="0" {% if not COOKIE_BLOCK_LINKS %} checked="checked"{% endif %} /> {{ lang('NO') }}</dd>
+		</dl>
+
+		<dl>
 			<dt><label for="cookie_require_access">{{ lang('COOKIE_REQUIRE') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_REQUIRE_EXPLAIN') }}</span></dt>
 			<dd><input type="radio" class="radio" name="cookie_require_access" value="1" id="cookie_require_access"{% if COOKIE_REQUIRE %} checked="checked"{% endif %}/> {{ lang('YES') }}
 				<input type="radio" class="radio" name="cookie_require_access" value="0" {% if not COOKIE_REQUIRE %} checked="checked"{% endif %} /> {{ lang('NO') }}</dd>
 		</dl>
-
 
 		<dl>
 			<dt><label for="cookie_eu_detect">{{ lang('COOKIE_DETECT') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_DETECT_EXPLAIN') }}</span></dt>

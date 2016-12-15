@@ -1,5 +1,13 @@
 {% if (S_COOKIE_ENABLED and not S_SHOW_COOKIE_ACCEPT) or S_COOKIE_CUSTOM_PAGE  %}
-	<script>
+	{% if S_COOKIE_BLOCK_LINKS %}
+		<script>;
+			var cookieLinks = '{{ lang('COOKIE_BLOCK')|escape('js') }}';
+		</script>
+
+		{% INCLUDEJS '@david63_cookiepolicy/remove_url.js' %}
+	{% endif %}
+
+	<script>;
 		var acceptText			= '{{ lang('COOKIE_ACCEPT')|escape('js') }}';
 		var cookieBoxBdColour	= '{COOKIE_BOX_BD_COLOUR}';
 		var cookieBoxBdWidth	= '{COOKIE_BOX_BD_WIDTH}';
@@ -13,6 +21,7 @@
 		var cookiePage			= '{U_COOKIE_PAGE}';
 		var phpbbCookieName		= '{COOKIE_NAME}';
 	</script>
+
 
 	{% INCLUDEJS '@david63_cookiepolicy/cookie_fn.js' %}
 {% endif %}

@@ -19,6 +19,7 @@ use \phpbb\user;
 use \phpbb\log\log;
 use \phpbb\controller\helper;
 use \phpbb\request\request;
+use \phpbb\request\request_interface;
 
 /**
 * Event listener
@@ -193,9 +194,11 @@ class listener implements EventSubscriberInterface
 	public function page_footer($event)
 	{
 		$this->template->assign_vars(array(
+			'S_COOKIE_BLOCK_LINKS'	=> $this->config['cookie_block_links'],
 			'S_COOKIE_CUSTOM_PAGE'	=> $this->config['cookie_custom_page'],
 			'S_COOKIE_ON_INDEX'		=> $this->config['cookie_on_index'],
 			'S_COOKIE_SHOW_POLICY'	=> $this->config['cookie_show_policy'],
+
 			'U_COOKIE_PAGE'			=> $this->helper->route('david63_cookiepolicy_cookieoutput', array('name' => 'policy')),
 
 		));

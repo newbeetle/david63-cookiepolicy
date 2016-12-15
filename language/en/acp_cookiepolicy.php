@@ -37,10 +37,12 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'ALL'								=> 'All',
+	'ALL'								=> 'All pages',
 
 	'CLICK_TO_SELECT'					=> 'Click in the box to select a colour',
 
+	'COOKIE_BLOCK_LINKS'				=> 'Block all links',
+	'COOKIE_BLOCK_LINKS_EXPLAIN'		=> 'Prevent a user accessing any links on the board until they have accepted the Cookie Policy.',
 	'COOKIE_BOX_BDR_COLOUR'				=> 'Cookie box border colour',
 	'COOKIE_BOX_BDR_COLOUR_EXPLAIN'		=> 'Select the border colour for the Cookie acceptance box.<br />The default colour is <strong>“#FFFF8A”</strong>',
 	'COOKIE_BOX_BDR_WIDTH'				=> 'Cookie box border width',
@@ -80,7 +82,7 @@ $lang = array_merge($lang, array(
 	'COOKIE_POLICY_OPTIONS'				=> 'Cookie policy options',
 
 	'COOKIE_REQUIRE'					=> 'Require cookie acceptance',
-	'COOKIE_REQUIRE_EXPLAIN'			=> 'Require the acceptance of board cookies before a member can either register or log-in.',
+	'COOKIE_REQUIRE_EXPLAIN'			=> 'Require the acceptance of board cookies before a member can either register or log-in.<br />Setting this to “Yes” will still allow a user to view the board (subject to permissions).',
 	'COOKIE_RIGHT'						=> 'Right',
 
 	'COOKIE_SHOW_POLICY'				=> 'Show cookie policy',
