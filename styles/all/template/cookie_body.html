@@ -1,11 +1,11 @@
 {% include 'overall_header.html' %}
 
 <script>
-	var cookieCustomPage	= '{S_COOKIE_CUSTOM_PAGE}';
-	var cookiePageBgColour	= '{COOKIE_PAGE_BG_COLOUR}';
-	var cookiePageTxtColour	= '{COOKIE_PAGE_TXT_COLOUR}';
+	var cookieCustomPage	= '{{ S_COOKIE_CUSTOM_PAGE }}';
+	var cookiePageBgColour	= '{{ COOKIE_PAGE_BG_COLOUR }}';
+	var cookiePageTxtColour	= '{{ COOKIE_PAGE_TXT_COLOUR }}';
 </script>
 
-{COOKIE_MESSAGE}
+{{ COOKIE_MESSAGE }}
 
 {% include 'overall_footer.html' %}

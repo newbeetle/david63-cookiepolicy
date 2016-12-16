@@ -3,9 +3,9 @@
 <h1>{{ lang('COOKIE_POLICY') }}</h1>
 <p>{{ lang('COOKIE_POLICY_EXPLAIN') }}</p>
 
-<img style="float: {S_CONTENT_FLOW_END};" src="https://img.shields.io/badge/{{ lang('VERSION') }}-{COOKIE_POLICY_VERSION}-orange.svg?style=plastic" /><br />
+<img style="float: {{ S_CONTENT_FLOW_END }};" src="https://img.shields.io/badge/{{ lang('VERSION') }}-{{ COOKIE_POLICY_VERSION }}-orange.svg?style=plastic" /><br />
 
-<form id="cookiepolicy" method="post" action="{U_ACTION}">
+<form id="cookiepolicy" method="post" action="{{ U_ACTION }}">
 	<fieldset>
 		<legend>{{ lang('COOKIE_POLICY_OPTIONS') }}</legend>
 
@@ -74,27 +74,27 @@
 
 		<dl>
 			<dt><label for="cookie_box_bg_colour">{{ lang('COOKIE_BOX_BG_COLOUR') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_BOX_BG_COLOUR_EXPLAIN') }}</span></dt>
-			<dd><input class="color" name="cookie_box_bg_colour" type="text" id="cookie_box_bg_colour" value="{COOKIE_BOX_BG_COLOUR}" size="8" maxlength="8" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
+			<dd><input class="color" name="cookie_box_bg_colour" type="text" id="cookie_box_bg_colour" value="{{ COOKIE_BOX_BG_COLOUR }}" size="8" maxlength="8" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
 		</dl>
 
 		<dl>
 			<dt><label for="cookie_box_txt_colour">{{ lang('COOKIE_BOX_TXT_COLOUR') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_BOX_TXT_COLOUR_EXPLAIN') }}</span></dt>
-			<dd><input class="color" name="cookie_box_txt_colour" type="text" id="cookie_box_txt_colour" value="{COOKIE_BOX_TXT_COLOUR}" size="8" maxlength="8" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
+			<dd><input class="color" name="cookie_box_txt_colour" type="text" id="cookie_box_txt_colour" value="{{ COOKIE_BOX_TXT_COLOUR }}" size="8" maxlength="8" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
 		</dl>
 
 		<dl>
 			<dt><label for="cookie_box_bdr_colour">{{ lang('COOKIE_BOX_BDR_COLOUR') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_BOX_BDR_COLOUR_EXPLAIN') }}</span></dt>
-			<dd><input class="color" name="cookie_box_bdr_colour" type="text" id="cookie_box_bdr_colour" value="{COOKIE_BOX_BDR_COLOUR}" size="8" maxlength="8" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
+			<dd><input class="color" name="cookie_box_bdr_colour" type="text" id="cookie_box_bdr_colour" value="{{ COOKIE_BOX_BDR_COLOUR }}" size="8" maxlength="8" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
 		</dl>
 
 		<dl>
 			<dt><label for="cookie_box_bdr_width">{{ lang('COOKIE_BOX_BDR_WIDTH') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_BOX_BDR_WIDTH_EXPLAIN') }}</span></dt>
-			<dd><input name="cookie_box_bdr_width" type="number" id="cookie_box_bdr_width" value="{COOKIE_BOX_BDR_WIDTH}" min="0" max="10" /> {{ lang('PIXELS') }}</dd>
+			<dd><input name="cookie_box_bdr_width" type="number" id="cookie_box_bdr_width" value="{{ COOKIE_BOX_BDR_WIDTH }}" min="0" max="10" /> {{ lang('PIXELS') }}</dd>
 		</dl>
 
 		<dl>
 			<dt><label for="cookie_box_href_colour">{{ lang('COOKIE_BOX_HREF_COLOUR') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_BOX_HREF_COLOUR_EXPLAIN') }}</span></dt>
-			<dd><input class="color" name="cookie_box_href_colour" type="text" id="cookie_box_href_colour" value="{COOKIE_BOX_HREF_COLOUR}" size="8" maxlength="8" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
+			<dd><input class="color" name="cookie_box_href_colour" type="text" id="cookie_box_href_colour" value="{{ COOKIE_BOX_HREF_COLOUR }}" size="8" maxlength="8" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
 		</dl>
 	</fieldset>
 
@@ -111,12 +111,12 @@
 
 		<dl>
 			<dt><label for="cookie_page_bg_colour">{{ lang('COOKIE_PAGE_BG_COLOUR') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_PAGE_BG_COLOUR_EXPLAIN') }}</span></dt>
-			<dd><input class="color" name="cookie_page_bg_colour" type="text" id="cookie_page_bg_colour" value="{COOKIE_PAGE_BG_COLOUR}" size="6" maxlength="6" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
+			<dd><input class="color" name="cookie_page_bg_colour" type="text" id="cookie_page_bg_colour" value="{{ COOKIE_PAGE_BG_COLOUR }}" size="6" maxlength="6" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
 		</dl>
 
 		<dl>
 			<dt><label for="cookie_page_txt_colour">{{ lang('COOKIE_PAGE_TXT_COLOUR') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_PAGE_TXT_COLOUR_EXPLAIN') }}</span></dt>
-			<dd><input class="color" name="cookie_page_txt_colour" type="text" id="cookie_page_txt_colour" value="{COOKIE_PAGE_TXT_COLOUR}" size="6" maxlength="6" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
+			<dd><input class="color" name="cookie_page_txt_colour" type="text" id="cookie_page_txt_colour" value="{{ COOKIE_PAGE_TXT_COLOUR }}" size="6" maxlength="6" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
 		</dl>
 	</fieldset>
 
@@ -126,13 +126,13 @@
 			<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
 			<input class="button2" type="reset" id="reset" name="reset" value="{{ lang('RESET') }}" />
 		</p>
-		{S_FORM_TOKEN}
+		{{ S_FORM_TOKEN }}
 	</fieldset>
 
 	{% if CURL %}
 		<fieldset>
 			<legend>{{ lang('UNBAN_IP') }}</legend>
-			<p>{UNBAN_TEXT}</p>
+			<p>{{ UNBAN_TEXT }}</p>
 		</fieldset>
 	{% endif %}
 </form>
