@@ -30,7 +30,7 @@
 	"extra": {
 		"display-name": "Cookie Policy (3.2)",
 		"soft-require": {
-			"phpbb/phpbb": ">=3.2.0-a1"
+			"phpbb/phpbb": ">=3.2.0"
 		}
 	}
 }
