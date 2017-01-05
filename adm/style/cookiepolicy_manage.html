@@ -16,12 +16,6 @@
 		</dl>
 
 		<dl>
-			<dt><label for="cookie_box_position">{{ lang('COOKIE_BOX_POSITION') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_BOX_POSITION_EXPLAIN') }}</span></dt>
-			<dd><input type="radio" class="radio" name="cookie_box_position" value="0" id="cookie_box_position"{% if not COOKIE_BOX_POSITION %} checked="checked"{% endif %}/> {{ lang('COOKIE_LEFT') }}
-				<input type="radio" class="radio" name="cookie_box_position" value="1" {% if COOKIE_BOX_POSITION %} checked="checked"{% endif %} /> {{ lang('COOKIE_RIGHT') }}</dd>
-		</dl>
-
-		<dl>
 			<dt><label for="cookie_block_links">{{ lang('COOKIE_BLOCK_LINKS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_BLOCK_LINKS_EXPLAIN') }}</span></dt>
 			<dd><input type="radio" class="radio" name="cookie_block_links" value="1" id="cookie_block_links"{% if COOKIE_BLOCK_LINKS %} checked="checked"{% endif %}/> {{ lang('YES') }}
 				<input type="radio" class="radio" name="cookie_block_links" value="0" {% if not COOKIE_BLOCK_LINKS %} checked="checked"{% endif %} /> {{ lang('NO') }}</dd>
@@ -34,18 +28,15 @@
 		</dl>
 
 		<dl>
-			<dt><label for="cookie_eu_detect">{{ lang('COOKIE_DETECT') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_DETECT_EXPLAIN') }}</span></dt>
-			<dd><input type="radio" class="radio" name="cookie_eu_detect" value="1" id="cookie_eu_detect"{% if COOKIE_POLICY_EU_DETECT %} checked="checked"{% endif %}/> {{ lang('YES') }}
-				<input type="radio" class="radio" name="cookie_eu_detect" value="0" {% if not COOKIE_POLICY_EU_DETECT %} checked="checked"{% endif %} /> {{ lang('NO') }}</dd>
-		</dl>
-
-
-
-
-		<dl>
 			<dt><label for="cookie_on_index">{{ lang('COOKIE_POLICY_ON_INDEX') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_POLICY_ON_INDEX_EXPLAIN') }}</span></dt>
 			<dd><input type="radio" class="radio" name="cookie_on_index" value="1" {% if COOKIE_POLICY_ON_INDEX %} checked="checked"{% endif %} /> {{ lang('INDEX') }}
 				<input type="radio" class="radio" name="cookie_on_index" value="0" id="cookie_on_index"{% if not COOKIE_POLICY_ON_INDEX %} checked="checked"{% endif %}/> {{ lang('ALL') }}</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="cookie_box_position">{{ lang('COOKIE_BOX_POSITION') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_BOX_POSITION_EXPLAIN') }}</span></dt>
+			<dd><input type="radio" class="radio" name="cookie_box_position" value="0" id="cookie_box_position"{% if not COOKIE_BOX_POSITION %} checked="checked"{% endif %}/> {{ lang('COOKIE_LEFT') }}
+				<input type="radio" class="radio" name="cookie_box_position" value="1" {% if COOKIE_BOX_POSITION %} checked="checked"{% endif %} /> {{ lang('COOKIE_RIGHT') }}</dd>
 		</dl>
 
 		<dl>
@@ -58,12 +49,6 @@
 			<dt><label for="cookie_show_policy">{{ lang('COOKIE_SHOW_POLICY') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_SHOW_POLICY_EXPLAIN') }}</span></dt>
 			<dd><input type="radio" class="radio" name="cookie_show_policy" value="1" id="cookie_show_policy"{% if COOKIE_SHOW_POLICY %} checked="checked"{% endif %}/> {{ lang('YES') }}
 				<input type="radio" class="radio" name="cookie_show_policy" value="0" {% if not COOKIE_SHOW_POLICY %} checked="checked"{% endif %} /> {{ lang('NO') }}</dd>
-		</dl>
-
-		<dl>
-			<dt><label for="cookie_log_errors">{{ lang('COOKIE_LOG_ERRORS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_LOG_ERRORS_EXPLAIN') }}</span></dt>
-			<dd><input type="radio" class="radio" name="cookie_log_errors" value="1" id="cookie_log_errors"{% if COOKIE_POLICY_LOG_ERRORS %} checked="checked"{% endif %}/> {{ lang('YES') }}
-				<input type="radio" class="radio" name="cookie_log_errors" value="0" {% if not COOKIE_POLICY_LOG_ERRORS %} checked="checked"{% endif %} /> {{ lang('NO') }}</dd>
 		</dl>
 	</fieldset>
 
@@ -128,13 +113,6 @@
 		</p>
 		{{ S_FORM_TOKEN }}
 	</fieldset>
-
-	{% if CURL %}
-		<fieldset>
-			<legend>{{ lang('UNBAN_IP') }}</legend>
-			<p>{{ UNBAN_TEXT }}</p>
-		</fieldset>
-	{% endif %}
 </form>
 
 {% INCLUDEJS '@david63_cookiepolicy/jscolor.js' %}

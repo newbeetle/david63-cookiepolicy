@@ -1,13 +1,14 @@
 {% if (S_COOKIE_ENABLED and not S_SHOW_COOKIE_ACCEPT) or S_COOKIE_CUSTOM_PAGE  %}
-	{% if S_COOKIE_BLOCK_LINKS %}
-		<script>;
+	<!-- Don't want to stop Bots (with permissions) from indexing the board -->
+	{% if S_COOKIE_BLOCK_LINKS and not S_IS_BOT %}
+		<script>
 			var cookieLinks = '{{ lang('COOKIE_BLOCK')|escape('js') }}';
 		</script>
 
 		{% INCLUDEJS '@david63_cookiepolicy/remove_url.js' %}
 	{% endif %}
 
-	<script>;
+	<script>
 		var acceptText			= '{{ lang('COOKIE_ACCEPT')|escape('js') }}';
 		var cookieBoxBdColour	= '{{ COOKIE_BOX_BD_COLOUR }}';
 		var cookieBoxBdWidth	= '{{ COOKIE_BOX_BD_WIDTH }}';

@@ -43,31 +43,32 @@ class admin_controller implements admin_interface
 
 	/** @var string Custom form action */
 	protected $u_action;
+    /** @noinspection PhpInconsistentReturnPointsInspection */
 
-	/**
+    /**
 	* Constructor for admin controller
 	*
 	* @param \phpbb\config\config		$config		Config object
 	* @param \phpbb\request\request		$request	Request object
 	* @param \phpbb\template\template	$template	Template object
 	* @param \phpbb\user				$user		User object
-	* @param \phpbb\language\language	$language
-	* @param \phpbb\log\log				$log
+	* @param \phpbb\language\language	$language	Language object
+	* @param \phpbb\log\log				$log		Log object
 	*
 	* @return \david63\cookiepolicy\controller\admin_controller
 	* @access public
 	*/
 	public function __construct(config $config, request $request, template $template, user $user, language $language, log $log)
 	{
-		$this->config		= $config;
-		$this->request		= $request;
-		$this->template		= $template;
-		$this->user			= $user;
-		$this->language		= $language;
-		$this->log			= $log;
+		$this->config	= $config;
+		$this->request	= $request;
+		$this->template	= $template;
+		$this->user		= $user;
+		$this->language	= $language;
+		$this->log		= $log;
 	}
 
-	/**
+    /**
 	* Display the options a user can configure for this extension
 	*
 	* @return null
@@ -104,25 +105,6 @@ class admin_controller implements admin_interface
 			trigger_error($this->language->lang('CONFIG_UPDATED') . adm_back_link($this->u_action));
 		}
 
-		// Get the IP address of the requesting server
-		// Check if cURL is available on the server
-		$curl		= false;
-		$request_ip	= '';
-		if (function_exists('curl_version'))
-		{
-			$curl_handle = curl_init();
-			curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
-			curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($curl_handle, CURLOPT_URL, 'http://ip-api.com/json?fields=query');
-
-			$ip_query = curl_exec($curl_handle);
-			curl_close($curl_handle);
-
-			$ip_array	= json_decode($ip_query, true);
-			$request_ip	= $ip_array['query'];
-			$curl		= true;
-		}
-
 		// Set output vars for display in the template
 		$this->template->assign_vars(array(
 			'COOKIE_BLOCK_LINKS'		=> isset($this->config['cookie_block_links']) ? $this->config['cookie_block_links'] : '',
@@ -136,21 +118,17 @@ class admin_controller implements admin_interface
 			'COOKIE_PAGE_BG_COLOUR'		=> isset($this->config['cookie_page_bg_colour']) ? $this->config['cookie_page_bg_colour'] : '',
 			'COOKIE_PAGE_TXT_COLOUR'	=> isset($this->config['cookie_page_txt_colour']) ? $this->config['cookie_page_txt_colour'] : '',
 			'COOKIE_POLICY_ENABLED'		=> isset($this->config['cookie_policy_enabled']) ? $this->config['cookie_policy_enabled'] : '',
-			'COOKIE_POLICY_EU_DETECT'	=> isset($this->config['cookie_eu_detect']) ? $this->config['cookie_eu_detect'] : '',
 			'COOKIE_POLICY_EXPIRE'		=> isset($this->config['cookie_expire']) ? $this->config['cookie_expire'] : '',
-			'COOKIE_POLICY_LOG_ERRORS'	=> isset($this->config['cookie_log_errors']) ? $this->config['cookie_log_errors'] : '',
 			'COOKIE_POLICY_ON_INDEX'	=> isset($this->config['cookie_on_index']) ? $this->config['cookie_on_index'] : '',
 			'COOKIE_POLICY_VERSION'		=> ext::COOKIE_POLICY_VERSION,
 			'COOKIE_REQUIRE'			=> isset($this->config['cookie_require_access']) ? $this->config['cookie_require_access'] : '',
 			'COOKIE_SHOW_POLICY'		=> isset($this->config['cookie_show_policy']) ? $this->config['cookie_show_policy'] : '',
-			'CURL'						=> $curl,
 
 			'U_ACTION' 					=> $this->u_action,
-			'UNBAN_TEXT'				=> $this->language->lang('UNBAN_IP_EXPLAIN', ext::LOOKUP_REQUEST_LIMIT, $request_ip),
 		));
 	}
 
-	/**
+    /**
 	* Set the options a user can configure
 	*
 	* @return null
@@ -166,9 +144,7 @@ class admin_controller implements admin_interface
 		$this->config->set('cookie_box_position', $this->request->variable('cookie_box_position', 0));
 		$this->config->set('cookie_box_txt_colour', $this->request->variable('cookie_box_txt_colour', ''));
 		$this->config->set('cookie_custom_page', $this->request->variable('cookie_custom_page', 0));
-		$this->config->set('cookie_eu_detect', $this->request->variable('cookie_eu_detect', 0));
 		$this->config->set('cookie_expire', $this->request->variable('cookie_expire', 0));
-		$this->config->set('cookie_log_errors', $this->request->variable('cookie_log_errors', 0));
 		$this->config->set('cookie_on_index', $this->request->variable('cookie_on_index', 0));
 		$this->config->set('cookie_page_bg_colour', $this->request->variable('cookie_page_bg_colour', ''));
 		$this->config->set('cookie_page_txt_colour', $this->request->variable('cookie_page_txt_colour', ''));

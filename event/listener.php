@@ -84,6 +84,15 @@ class listener implements EventSubscriberInterface
 		);
 	}
 
+    /**
+     * Block links if option sey
+     *
+     * @param $event
+     *
+     * @return array
+     * @static
+     * @access public
+     */
 	public function check_cookie_accepted($event)
 	{
 		if ($this->config['cookie_require_access'] && !isset($_COOKIE[$this->config['cookie_name'] . '_ca']))
@@ -126,51 +135,66 @@ class listener implements EventSubscriberInterface
 		// If we have already set the cookie on this device then there is no need to process
 		$cookie_set = $this->request->is_set($this->config['cookie_name'] . '_ca', request_interface::COOKIE) ? true : false;
 
-		if ($this->config['cookie_policy_enabled'] && !$cookie_set && !$this->user->data['is_bot'])
+		if ($cookie_enabled && !$this->user->data['is_bot'] && !$cookie_set)
 		{
-			// Only need to do this if we are trying to detect if cookie required
-			if ($this->config['cookie_eu_detect'])
+			// Let's try to stop some spam attacks - check if the same IP as the last is being requested
+			if ($this->user->ip != $this->config['cookie_last_ip'])
 			{
-				// Setting this to true here means that if there is a problem with the IP lookup then the cookie will be enabled - just in case we have got it wrong!
-				$cookie_enabled = true;
-
 				// Check if cURL is available on the server
 				if (function_exists('curl_version'))
 				{
 					$curl_handle = curl_init();
 					curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
-					curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-					curl_setopt($curl_handle, CURLOPT_URL, 'http://ip-api.com/json/' . $this->user->ip .'?fields=status,countryCode,message');
+					curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
+					curl_setopt($curl_handle, CURLOPT_URL, 'freegeoip.net/json/' . $this->user->ip);
 
-					$ip_query = curl_exec($curl_handle);
+					$ip_query	= curl_exec($curl_handle);
+					$http_code	= curl_getinfo($curl_handle, CURLINFO_HTTP_CODE);
 					curl_close($curl_handle);
 
-					if (!empty($ip_query))
+					switch ($http_code)
 					{
-						$ip_array = json_decode($ip_query, true);
-						$eu_array = array('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 'EU', 'FI', 'FR', 'FX', 'GB', 'GR', 'HR', 'HU', 'IE', 'IM', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK');
+						case 200: // Success
+							$ip_array = json_decode($ip_query, true);
+							$eu_array = array('AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 'EU', 'FI', 'FR', 'FX', 'GB', 'GR', 'HR', 'HU', 'IE', 'IM', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'UK');
 
-						if ($ip_array['status'] == 'success' && !in_array($ip_array['countryCode'], $eu_array))
-						{
-							// IP not in an EU country therefore we do not need to invoke the Cookie Policy
-							$cookie_enabled = false;
-						}
-						else if ($ip_array['status'] != 'success' && $this->config['cookie_log_errors'])
-						{
-							// Need to create the language variable
-							$lang_var = 'LOG_RETURN_ERROR_' . str_replace(' ', '_', strtoupper($ip_array['message']));
-							$this->log->add('critical', $this->user->data['user_id'], $this->user->ip, $lang_var);
-						}
-					}
-					else if ($this->config['cookie_log_errors'])
-					{
-						$this->log->add('critical', $this->user->data['user_id'], $this->user->ip, 'LOG_SERVER_ERROR');
+							if (!in_array($ip_array['country_code'], $eu_array))
+							{
+								// IP not in an EU country therefore we do not need to invoke the Cookie Policy
+								$cookie_enabled = false;
+							}
+
+							// This lookup was successful so unset the quota flag
+							$this->config->set('cookie_quota_exceeded', false, false);
+						break;
+
+						case 403: // Quota exceeded
+							// No need to report every occurence
+							if (!$this->config['cookie_quota_exceeded'])
+							{
+								$this->log->add('critical', $this->user->data['user_id'], $this->user->ip, 'LOG_QUOTA_EXCEEDED');
+
+								// Quota exceeded so set the flag to prevet excessive logging
+								$this->config->set('cookie_quota_exceeded', true, false);
+							}
+						break;
+
+						case 404: // Not found
+							$this->log->add('critical', $this->user->data['user_id'], $this->user->ip, 'LOG_SERVER_ERROR');
+						break;
+
+						default: // Any other condition
+							$this->log->add('critical', $this->user->data['user_id'], $this->user->ip, 'LOG_IP_LOOKUP_ERROR');
+						break;
 					}
 				}
 				else
 				{
 					$this->log->add('critical', $this->user->data['user_id'], $this->user->ip, 'LOG_CURL_ERROR');
 				}
+
+				// Update last IP search
+				$this->config->set('cookie_last_ip', $this->user->ip, false);
 			}
 
 			$this->template->assign_vars(array(
@@ -191,6 +215,15 @@ class listener implements EventSubscriberInterface
 		));
 	}
 
+    /**
+     * Set the teplate variables
+     *
+     * @param $event
+     *
+     * @return array
+     * @static
+     * @access public
+     */
 	public function page_footer($event)
 	{
 		$this->template->assign_vars(array(
@@ -200,7 +233,6 @@ class listener implements EventSubscriberInterface
 			'S_COOKIE_SHOW_POLICY'	=> $this->config['cookie_show_policy'],
 
 			'U_COOKIE_PAGE'			=> $this->helper->route('david63_cookiepolicy_cookieoutput', array('name' => 'policy')),
-
 		));
 	}
 }

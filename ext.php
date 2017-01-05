@@ -15,9 +15,8 @@ use \phpbb\extension\base;
 class ext extends base
 {
 	const COOKIE_POLICY_VERSION	= '2.1.0';
-	const LOOKUP_REQUEST_LIMIT	= '150'; // Use a constant then language files will not need changing if this changed
 
-	/**
+    /**
 	* Enable extension if phpBB version requirement is met
 	*
 	* @var string Require 3.2.0-a1 due to updated 3.2 syntax

@@ -37,14 +37,12 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'COOKIE_POLICY'						=> 'Cookie policy',
-	'COOKIE_POLICY_LOG'					=> '<strong>Cookie policy settings updated</strong>',
-	'COOKIE_POLICY_MANAGE'				=> 'Manage settings',
+	'COOKIE_POLICY'			=> 'Cookie policy',
+	'COOKIE_POLICY_LOG'		=> '<strong>Cookie policy settings updated</strong>',
+	'COOKIE_POLICY_MANAGE'	=> 'Manage settings',
 
-	'LOG_CURL_ERROR'					=> '<strong>cURL is not available on this server</strong>',
-	'LOG_RETURN_ERROR_PRIVATE_RANGE'	=> '<strong>The IP address is part of a private range</strong>',
-	'LOG_RETURN_ERROR_RESERVED_RANGE' 	=> '<strong>The IP address is part of a reserved range</strong>',
-	'LOG_RETURN_ERROR_INVALID_QUERY' 	=> '<strong>Invalid IP address or domain name</strong>',
-	'LOG_RETURN_ERROR_QUOTA'			=> '<strong>The lookup quota has been exceeded</strong>',
-	'LOG_SERVER_ERROR'					=> '<strong>Could not connect to IP server</strong>',
+	'LOG_CURL_ERROR'		=> '<strong>cURL is not available on this server</strong>',
+	'LOG_IP_LOOKUP_ERROR'	=> '<strong>The IP lookup has failed</strong>',
+	'LOG_QUOTA_EXCEEDED'	=> '<strong>The hourly lookup quota has been exceeded</strong>',
+	'LOG_SERVER_ERROR'		=> '<strong>Could not determine IP address</strong>',
 ));
