@@ -198,14 +198,14 @@ class listener implements EventSubscriberInterface
 			}
 
 			$this->template->assign_vars(array(
-				'COOKIE_BOX_BD_COLOUR'		=> addslashes($this->config['cookie_box_bdr_colour']),
-				'COOKIE_BOX_BD_WIDTH'		=> addslashes($this->config['cookie_box_bdr_width']),
-				'COOKIE_BOX_BG_COLOUR'		=> addslashes($this->config['cookie_box_bg_colour']),
-				'COOKIE_BOX_HREF_COLOUR'	=> addslashes($this->config['cookie_box_href_colour']),
-				'COOKIE_BOX_TXT_COLOUR'		=> addslashes($this->config['cookie_box_txt_colour']),
-				'COOKIE_CLASS'				=> $this->config['cookie_box_position'] ? addslashes('cookie-box rightside') : addslashes('cookie-box leftside'),
-				'COOKIE_EXPIRES'			=> addslashes($this->config['cookie_expire']),
-				'COOKIE_NAME'				=> addslashes($this->config['cookie_name']),
+				'COOKIE_BOX_BD_COLOUR'		=> $this->config['cookie_box_bdr_colour'],
+				'COOKIE_BOX_BD_WIDTH'		=> $this->config['cookie_box_bdr_width'],
+				'COOKIE_BOX_BG_COLOUR'		=> $this->config['cookie_box_bg_colour'],
+				'COOKIE_BOX_HREF_COLOUR'	=> $this->config['cookie_box_href_colour'],
+				'COOKIE_BOX_TXT_COLOUR'		=> $this->config['cookie_box_txt_colour'],
+				'COOKIE_CLASS'				=> $this->config['cookie_box_position'] ? 'cookie-box rightside' : 'cookie-box leftside',
+				'COOKIE_EXPIRES'			=> $this->config['cookie_expire'],
+				'COOKIE_NAME'				=> $this->config['cookie_name'],
 			));
 		}
 

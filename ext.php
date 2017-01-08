@@ -14,7 +14,7 @@ use \phpbb\extension\base;
 
 class ext extends base
 {
-	const COOKIE_POLICY_VERSION	= '2.1.0';
+	const COOKIE_POLICY_VERSION	= '2.1.0-rc1';
 
     /**
 	* Enable extension if phpBB version requirement is met
@@ -28,7 +28,7 @@ class ext extends base
 	{
 		$config = $this->container->get('config');
 
-		if (!phpbb_version_compare($config['version'], '3.2.0-a1', '>='))
+		if (!phpbb_version_compare($config['version'], '3.2.0', '>='))
 		{
 			$this->container->get('language')->add_lang('ext_cookiepolicy', 'david63/cookiepolicy');
 			trigger_error($this->container->get('language')->lang('VERSION_32') . adm_back_link(append_sid('index.' . $this->container->getParameter('core.php_ext'), 'i=acp_extensions&amp;mode=main')), E_USER_WARNING);
