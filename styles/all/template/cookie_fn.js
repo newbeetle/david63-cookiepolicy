@@ -36,7 +36,11 @@
 		//Set the custom css colours when on the Cookie Page
 		if (cookieCustomPage == true)
 		{
-			$('#page-body').css({'background-color': cookiePageBgColour, 'color': cookiePageTxtColour, 'padding': '5px'});
+			$('#page-body').css({
+				'background-color': cookiePageBgColour,
+				'color': cookiePageTxtColour, 'padding': '5px'
+			});
+
 			$('h3').css('color', cookiePageTxtColour);
 		}
 	});
