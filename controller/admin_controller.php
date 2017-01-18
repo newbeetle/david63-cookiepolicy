@@ -107,24 +107,26 @@ class admin_controller implements admin_interface
 
 		// Set output vars for display in the template
 		$this->template->assign_vars(array(
-			'COOKIE_BLOCK_LINKS'		=> isset($this->config['cookie_block_links']) ? $this->config['cookie_block_links'] : '',
-			'COOKIE_BOX_BDR_COLOUR'		=> isset($this->config['cookie_box_bdr_colour']) ? $this->config['cookie_box_bdr_colour'] : '',
-			'COOKIE_BOX_BDR_WIDTH'		=> isset($this->config['cookie_box_bdr_width']) ? $this->config['cookie_box_bdr_width'] : '',
-			'COOKIE_BOX_BG_COLOUR'		=> isset($this->config['cookie_box_bg_colour']) ? $this->config['cookie_box_bg_colour'] : '',
-			'COOKIE_BOX_HREF_COLOUR'	=> isset($this->config['cookie_box_href_colour']) ? $this->config['cookie_box_href_colour'] : '',
-			'COOKIE_BOX_POSITION'		=> isset($this->config['cookie_box_position']) ? $this->config['cookie_box_position'] : '',
-			'COOKIE_BOX_TXT_COLOUR'		=> isset($this->config['cookie_box_txt_colour']) ? $this->config['cookie_box_txt_colour'] : '',
-			'COOKIE_CUSTOM_PAGE'		=> isset($this->config['cookie_custom_page']) ? $this->config['cookie_custom_page'] : '',
-			'COOKIE_PAGE_BG_COLOUR'		=> isset($this->config['cookie_page_bg_colour']) ? $this->config['cookie_page_bg_colour'] : '',
-			'COOKIE_PAGE_TXT_COLOUR'	=> isset($this->config['cookie_page_txt_colour']) ? $this->config['cookie_page_txt_colour'] : '',
-			'COOKIE_POLICY_ENABLED'		=> isset($this->config['cookie_policy_enabled']) ? $this->config['cookie_policy_enabled'] : '',
-			'COOKIE_POLICY_EXPIRE'		=> isset($this->config['cookie_expire']) ? $this->config['cookie_expire'] : '',
-			'COOKIE_POLICY_ON_INDEX'	=> isset($this->config['cookie_on_index']) ? $this->config['cookie_on_index'] : '',
-			'COOKIE_POLICY_VERSION'		=> ext::COOKIE_POLICY_VERSION,
-			'COOKIE_REQUIRE'			=> isset($this->config['cookie_require_access']) ? $this->config['cookie_require_access'] : '',
-			'COOKIE_SHOW_POLICY'		=> isset($this->config['cookie_show_policy']) ? $this->config['cookie_show_policy'] : '',
+			'COOKIE_BLOCK_LINKS'			=> isset($this->config['cookie_block_links']) ? $this->config['cookie_block_links'] : '',
+			'COOKIE_BOX_BDR_COLOUR'			=> isset($this->config['cookie_box_bdr_colour']) ? $this->config['cookie_box_bdr_colour'] : '',
+			'COOKIE_BOX_BDR_WIDTH'			=> isset($this->config['cookie_box_bdr_width']) ? $this->config['cookie_box_bdr_width'] : '',
+			'COOKIE_BOX_BG_COLOUR'			=> isset($this->config['cookie_box_bg_colour']) ? $this->config['cookie_box_bg_colour'] : '',
+			'COOKIE_BOX_HREF_COLOUR'		=> isset($this->config['cookie_box_href_colour']) ? $this->config['cookie_box_href_colour'] : '',
+			'COOKIE_BOX_POSITION'			=> isset($this->config['cookie_box_position']) ? $this->config['cookie_box_position'] : '',
+			'COOKIE_BOX_TXT_COLOUR'			=> isset($this->config['cookie_box_txt_colour']) ? $this->config['cookie_box_txt_colour'] : '',
+			'COOKIE_CUSTOM_PAGE'			=> isset($this->config['cookie_custom_page']) ? $this->config['cookie_custom_page'] : '',
+			'COOKIE_CUSTOM_PAGE_CORNERS'	=> isset($this->config['cookie_page_corners']) ? $this->config['cookie_page_corners'] : '',
+			'COOKIE_CUSTOM_PAGE_RADIUS'		=> isset($this->config['cookie_page_radius']) ? $this->config['cookie_page_radius'] : '',
+			'COOKIE_PAGE_BG_COLOUR'			=> isset($this->config['cookie_page_bg_colour']) ? $this->config['cookie_page_bg_colour'] : '',
+			'COOKIE_PAGE_TXT_COLOUR'		=> isset($this->config['cookie_page_txt_colour']) ? $this->config['cookie_page_txt_colour'] : '',
+			'COOKIE_POLICY_ENABLED'			=> isset($this->config['cookie_policy_enabled']) ? $this->config['cookie_policy_enabled'] : '',
+			'COOKIE_POLICY_EXPIRE'			=> isset($this->config['cookie_expire']) ? $this->config['cookie_expire'] : '',
+			'COOKIE_POLICY_ON_INDEX'		=> isset($this->config['cookie_on_index']) ? $this->config['cookie_on_index'] : '',
+			'COOKIE_POLICY_VERSION'			=> ext::COOKIE_POLICY_VERSION,
+			'COOKIE_REQUIRE'				=> isset($this->config['cookie_require_access']) ? $this->config['cookie_require_access'] : '',
+			'COOKIE_SHOW_POLICY'			=> isset($this->config['cookie_show_policy']) ? $this->config['cookie_show_policy'] : '',
 
-			'U_ACTION' 					=> $this->u_action,
+			'U_ACTION' 						=> $this->u_action,
 		));
 	}
 
@@ -144,6 +146,8 @@ class admin_controller implements admin_interface
 		$this->config->set('cookie_box_position', $this->request->variable('cookie_box_position', 0));
 		$this->config->set('cookie_box_txt_colour', $this->request->variable('cookie_box_txt_colour', ''));
 		$this->config->set('cookie_custom_page', $this->request->variable('cookie_custom_page', 0));
+		$this->config->set('cookie_page_corners', $this->request->variable('cookie_page_corners', 0));
+		$this->config->set('cookie_page_radius', $this->request->variable('cookie_page_radius', 0));
 		$this->config->set('cookie_expire', $this->request->variable('cookie_expire', 0));
 		$this->config->set('cookie_on_index', $this->request->variable('cookie_on_index', 0));
 		$this->config->set('cookie_page_bg_colour', $this->request->variable('cookie_page_bg_colour', ''));

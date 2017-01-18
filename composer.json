@@ -2,7 +2,7 @@
 	"name": "david63/cookiepolicy",
 	"type": "phpbb-extension",
 	"description": "Adds an option for the user to accept the use of cookies, under EU Cookie Directive (2012), on the board",
-	"version": "2.1.0-rc1",
+	"version": "2.1.0-rc2",
 	"time": "2017-01-04",
 	"keywords": [
 		"phpbb",

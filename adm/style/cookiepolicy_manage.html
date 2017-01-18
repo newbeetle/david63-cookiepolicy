@@ -59,17 +59,17 @@
 
 		<dl>
 			<dt><label for="cookie_box_bg_colour">{{ lang('COOKIE_BOX_BG_COLOUR') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_BOX_BG_COLOUR_EXPLAIN') }}</span></dt>
-			<dd><input class="jscolor {hash:true, uppercase:false}" name="cookie_box_bg_colour" type="text" id="cookie_box_bg_colour" value="{{ COOKIE_BOX_BG_COLOUR }}" size="8" maxlength="8" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
+			<dd><input class="jscolor {hash:true}" name="cookie_box_bg_colour" type="text" id="cookie_box_bg_colour" value="{{ COOKIE_BOX_BG_COLOUR }}" size="8" maxlength="8" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
 		</dl>
 
 		<dl>
 			<dt><label for="cookie_box_txt_colour">{{ lang('COOKIE_BOX_TXT_COLOUR') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_BOX_TXT_COLOUR_EXPLAIN') }}</span></dt>
-			<dd><input class="jscolor {hash:true, uppercase:false}" name="cookie_box_txt_colour" type="text" id="cookie_box_txt_colour" value="{{ COOKIE_BOX_TXT_COLOUR }}" size="8" maxlength="8" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
+			<dd><input class="jscolor {hash:true}" name="cookie_box_txt_colour" type="text" id="cookie_box_txt_colour" value="{{ COOKIE_BOX_TXT_COLOUR }}" size="8" maxlength="8" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
 		</dl>
 
 		<dl>
 			<dt><label for="cookie_box_bdr_colour">{{ lang('COOKIE_BOX_BDR_COLOUR') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_BOX_BDR_COLOUR_EXPLAIN') }}</span></dt>
-			<dd><input class="jscolor {hash:true, uppercase:false}" name="cookie_box_bdr_colour" type="text" id="cookie_box_bdr_colour" value="{{ COOKIE_BOX_BDR_COLOUR }}" size="8" maxlength="8" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
+			<dd><input class="jscolor {hash:true}" name="cookie_box_bdr_colour" type="text" id="cookie_box_bdr_colour" value="{{ COOKIE_BOX_BDR_COLOUR }}" size="8" maxlength="8" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
 		</dl>
 
 		<dl>
@@ -79,7 +79,7 @@
 
 		<dl>
 			<dt><label for="cookie_box_href_colour">{{ lang('COOKIE_BOX_HREF_COLOUR') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_BOX_HREF_COLOUR_EXPLAIN') }}</span></dt>
-			<dd><input class="jscolor {hash:true, uppercase:false}" name="cookie_box_href_colour" type="text" id="cookie_box_href_colour" value="{{ COOKIE_BOX_HREF_COLOUR }}" size="8" maxlength="8" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
+			<dd><input class="jscolor {hash:true}" name="cookie_box_href_colour" type="text" id="cookie_box_href_colour" value="{{ COOKIE_BOX_HREF_COLOUR }}" size="8" maxlength="8" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
 		</dl>
 	</fieldset>
 
@@ -96,12 +96,23 @@
 
 		<dl>
 			<dt><label for="cookie_page_bg_colour">{{ lang('COOKIE_PAGE_BG_COLOUR') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_PAGE_BG_COLOUR_EXPLAIN') }}</span></dt>
-			<dd><input class="jscolor {hash:true, uppercase:false}" name="cookie_page_bg_colour" type="text" id="cookie_page_bg_colour" value="{{ COOKIE_PAGE_BG_COLOUR }}" size="6" maxlength="6" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
+			<dd><input class="jscolor {hash:true}" name="cookie_page_bg_colour" type="text" id="cookie_page_bg_colour" value="{{ COOKIE_PAGE_BG_COLOUR }}" size="6" maxlength="6" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
 		</dl>
 
 		<dl>
 			<dt><label for="cookie_page_txt_colour">{{ lang('COOKIE_PAGE_TXT_COLOUR') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_PAGE_TXT_COLOUR_EXPLAIN') }}</span></dt>
-			<dd><input class="jscolor {hash:true, uppercase:false}" name="cookie_page_txt_colour" type="text" id="cookie_page_txt_colour" value="{{ COOKIE_PAGE_TXT_COLOUR }}" size="6" maxlength="6" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
+			<dd><input class="jscolor {hash:true}" name="cookie_page_txt_colour" type="text" id="cookie_page_txt_colour" value="{{ COOKIE_PAGE_TXT_COLOUR }}" size="6" maxlength="6" />&nbsp;{{ lang('CLICK_TO_SELECT') }}</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="cookie_custom_page">{{ lang('COOKIE_CUSTOM_PAGE_CORNERS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_CUSTOM_PAGE_CORNERS_EXPLAIN') }}</span></dt>
+			<dd><input type="radio" class="radio" name="cookie_page_corners" value="1" id="cookie_page_corners"{% if COOKIE_CUSTOM_PAGE_CORNERS %} checked="checked"{% endif %}/> {{ lang('YES') }}
+				<input type="radio" class="radio" name="cookie_page_corners" value="0" {% if not COOKIE_CUSTOM_PAGE_CORNERS %} checked="checked"{% endif %} /> {{ lang('NO') }}</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="cookie_custom_page_radius">{{ lang('COOKIE_CUSTOM_PAGE_RADIUS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('COOKIE_CUSTOM_PAGE_RADIUS_EXPLAIN') }}</span></dt>
+			<dd><input name="cookie_page_radius" type="number" id="cookie_page_radius" value="{{ COOKIE_CUSTOM_PAGE_RADIUS }}" min="0" max="99" /> {{ lang('PIXELS') }}</dd>
 		</dl>
 	</fieldset>
 

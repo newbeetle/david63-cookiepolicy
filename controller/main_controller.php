@@ -67,7 +67,11 @@ class main_controller implements main_interface
 
 		$this->template->assign_vars(array(
 			'COOKIE_PAGE_BG_COLOUR'		=> $this->config['cookie_page_bg_colour'],
+			'COOKIE_PAGE_CORNERS'		=> $this->config['cookie_page_corners'],
+			'COOKIE_PAGE_RADIUS'		=> $this->config['cookie_page_radius'],
 			'COOKIE_PAGE_TXT_COLOUR'	=> $this->config['cookie_page_txt_colour'],
+
+			'S_COOKIE_CUSTOM_PAGE'		=> $this->config['cookie_custom_page'],
 		));
 
 		return $this->helper->render('cookie_body.html', $output_name);

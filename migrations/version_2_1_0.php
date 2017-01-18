@@ -24,6 +24,8 @@ class version_2_1_0 extends migration
 			array('config.add', array('cookie_box_position', 1)),
 			array('config.add', array('cookie_box_txt_colour', '#DBDB00')),
 			array('config.add', array('cookie_custom_page', 0)),
+			array('config.add', array('cookie_custom_page_corners', 1)),
+			array('config.add', array('cookie_custom_page_radius', 7)),
 			array('config.add', array('cookie_expire', 0)),
 			array('config.add', array('cookie_last_ip', '')),
 			array('config.add', array('cookie_on_index', 1)),
