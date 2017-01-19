@@ -79,7 +79,7 @@ class listener implements EventSubscriberInterface
 		return array(
 			'core.page_footer'			=> 'page_footer',
 			'core.page_header'			=> 'page_header',
-			'core.page_header_after'	=> 'check_cookie_accepted',
+			'core.page_header_after'	=> 'check_cookie',
 			'core.user_setup'			=> 'load_language_on_setup',
 		);
 	}
@@ -93,14 +93,20 @@ class listener implements EventSubscriberInterface
      * @static
      * @access public
      */
-	public function check_cookie_accepted($event)
+	public function check_cookie($event)
 	{
-		if ($this->config['cookie_require_access'] && !isset($_COOKIE[$this->config['cookie_name'] . '_ca']))
+		if ($this->config['cookie_policy_enabled'])
 		{
-			$this->template->assign_vars(array(
-				'U_REGISTER'		=> $this->helper->route('david63_cookiepolicy_cookieoutput', array('name' => 'access')),
-				'U_LOGIN_LOGOUT'	=> $this->helper->route('david63_cookiepolicy_cookieoutput', array('name' => 'access')),
-			));
+			if ($this->config['cookie_require_access'] && !isset($_COOKIE[$this->config['cookie_name'] . '_ca']))
+			{
+				$this->template->assign_vars(array(
+					'U_REGISTER'		=> $this->helper->route('david63_cookiepolicy_cookieoutput', array('name' => 'access')),
+					'U_LOGIN_LOGOUT'	=> $this->helper->route('david63_cookiepolicy_cookieoutput', array('name' => 'access')),
+				));
+			}
+
+			// Disable phpBB Cookie Notice
+			$this->template->assign_var('S_COOKIE_NOTICE', false);
 		}
 	}
 
