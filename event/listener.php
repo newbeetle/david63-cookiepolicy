@@ -119,12 +119,16 @@ class listener implements EventSubscriberInterface
 	*/
 	public function load_language_on_setup($event)
 	{
-		$lang_set_ext	= $event['lang_set_ext'];
-		$lang_set_ext[]	= array(
-			'ext_name' => 'david63/cookiepolicy',
-			'lang_set' => 'cookiepolicy',
-		);
-		$event['lang_set_ext'] = $lang_set_ext;
+		// Only load the language if it is required
+		if ($this->config['cookie_policy_enabled'] || $this->config['cookie_show_policy'])
+		{
+			$lang_set_ext	= $event['lang_set_ext'];
+			$lang_set_ext[]	= array(
+				'ext_name' => 'david63/cookiepolicy',
+				'lang_set' => 'cookiepolicy',
+			);
+			$event['lang_set_ext'] = $lang_set_ext;
+		}
 	}
 
 	/**
