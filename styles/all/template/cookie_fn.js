@@ -36,8 +36,6 @@
 
 	function setCookie(cookieName)
 	{
-		'use strict';
-
 		var expire		= '';
         var expireDate	= new Date();
 		var expireTime	= 60 * 60 *24 * 365 * 1000; // Set default to one year
@@ -57,8 +55,6 @@
 
 	function getCookie(cookieName)
 	{
-		'use strict';
-
     	var name	= cookieName + "=";
     	var chunk	= document.cookie.split(";");
 

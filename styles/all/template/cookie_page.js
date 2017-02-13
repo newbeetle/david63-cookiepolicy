@@ -16,9 +16,9 @@
 			if (cookiePageCorners == true)
 			{
 				$('#page-body').css({
-					'-webkit-border-radius': parseInt(cookiePageRadius),
-					'-moz-border-radius': parseInt(cookiePageRadius),
-					'border-radius': parseInt(cookiePageRadius)
+					'-webkit-border-radius': cookiePageRadius + 'px',
+					'-moz-border-radius': cookiePageRadius + 'px',
+					'border-radius': cookiePageRadius + 'px',
 				});
 			}
 
