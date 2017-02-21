@@ -10,7 +10,7 @@
 
 namespace david63\cookiepolicy;
 
-use \phpbb\extension\base;
+use phpbb\extension\base;
 
 class ext extends base
 {
